@@ -45,6 +45,7 @@ group :test do
   gem 'shoulda-matchers'
 end
 
+gem 'figaro'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'backbone-on-rails'
 

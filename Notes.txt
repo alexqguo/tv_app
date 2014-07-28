@@ -2,6 +2,7 @@ Notes
 
 - Models
 	- user
+		- username, profile_private (bool)
 		- has_many: shows (through user_shows), episode_views
 	- session
 		- user_id, session_token
@@ -23,12 +24,3 @@ Notes
 	- episode_view
 		- user_id, episode_id, in_progress (bool)
 		- belongs_to: user, episode
-
-On login: 
-	- find the appropriate user given credentials
-	- create a new session of that user
-	- set current_user to that user
-
-On logout:
-	- delete the session whose session_token equals session[:token]
-	- set current_user to nil
