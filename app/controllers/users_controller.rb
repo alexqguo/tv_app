@@ -1,33 +1,38 @@
 class UsersController < ApplicationController
 
 	def index
-		render json: User.all
+		@users = User.all
 	end
 
 	def show
 		@user = User.find_by_id(params[:id])
 
-		if @user
-			render json: @user
-		else
+		unless @user
 			render json: "user not found"
 		end
 	end
 
 	def new
-		render json: "not implemented"
+		@user = User.new
 	end
 
 	def create
-		render json: "not implemented"
+		@user = User.new(user_params)
+
+		if @user.save
+			redirect_to @user
+		else
+			flash.now[:errors] = @user.errors.full_messages
+			render :new
+		end
 	end
 
 	def edit
 		render json: "not implemented"
 	end
 
-	def upeate
-		render json: "not implemented"
+	def update
+		fail
 	end
 
 	private
