@@ -5,7 +5,6 @@
 #  id              :integer          not null, primary key
 #  username        :string(255)      not null
 #  password_digest :string(255)      not null
-#  session_token   :string(255)
 #  created_at      :datetime
 #  updated_at      :datetime
 #
@@ -18,6 +17,7 @@ class User < ActiveRecord::Base
 	validates :username, :password_digest, presence: true
 
 	before_validation :ensure_token
+	has_many :sessions
 
 	def password=(pass)
 		@password = pass
@@ -28,26 +28,16 @@ class User < ActiveRecord::Base
 		BCrypt::Password.new(self.password_digest).is_password?(pass)
 	end
 
-	def reset_token!
-		self.session_token = self.class.generate_token
-		self.save!
-		self.session_token
-	end
-
-	def self.generate_token
-		SecureRandom::urlsafe_base64(16)
-	end
-
 	def self.find_by_credentials(username, password)
 		user = User.find_by_username(username)
 		return nil if user.nil?
 		user.is_password?(password) ? user : nil
 	end
 
-	private
+	def self.find_by_session_token(token)
+		session = Session.where(session_token: token).first
 
-	def ensure_token
-		self.session_token ||= self.class.generate_token
+		session.nil? ? nil : session.user
 	end
 
 end
