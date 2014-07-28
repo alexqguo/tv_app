@@ -1,0 +1,23 @@
+Notes
+
+- Models
+	- user
+		- has_many: shows (through user_shows), episode_views
+	- session
+	- show
+		- name, description?, active (bool), release_date
+		- has_many: users (through user_shows), seasons
+	- user_show
+		- user_id, show_id
+		- belongs_to: user, show
+	- season
+		- show_id
+		- has_many: episodes
+		- belongs_to: show
+	- episode
+		- name, season_id, release_date
+		- has_many: episode_views
+		- belongs_to: season
+	- episode_view
+		- user_id, episode_id, in_progress (bool)
+		- belongs_to: user, episode
