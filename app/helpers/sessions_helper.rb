@@ -12,7 +12,7 @@ module SessionsHelper
 
 	def current_user
 		return nil unless session[:token]
-		@current_user ||= Session.find_by_session_token(session[:token])
+		@current_user ||= Session.find_by_session_token(session[:token]).user
 	end
 
 	def require_current_user!

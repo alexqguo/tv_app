@@ -8,6 +8,7 @@ class SessionsController < ApplicationController
 
 		if @user
 			sign_in @user
+			redirect_to @user
 		else
 			flash.now[:errors] = "Invalid Username/Password combination"
 			render :new
