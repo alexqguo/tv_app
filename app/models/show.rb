@@ -26,8 +26,11 @@ class Show < ActiveRecord::Base
 	# has_many :seasons
 
 	def all_episodes
-		# avoid n+1 query with this, don't just do
-		# self
+		# avoid unnecessary query with this, don't just do
+		# self.seasons.each do |x|
+		# 	get episodes
+		# end
+		# 
 		nil
 	end
 
