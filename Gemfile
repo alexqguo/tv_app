@@ -11,7 +11,7 @@ gem 'jbuilder', '~> 2.0'
 gem 'turbolinks'
 gem 'jquery-rails'
 
-gem 'figaro'
+gem 'themoviedb'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'backbone-on-rails'
 
