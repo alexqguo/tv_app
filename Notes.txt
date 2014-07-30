@@ -8,13 +8,16 @@ Notes
 		- user_id, session_token
 		- belongs_to: user
 	- show
-		- name, description?, active (bool), release_date
+		- name, description?, in_production, release_date, descripton (text), poster_path,
+			first_air_date, created_by (string for names), tmdb_id
 		- has_many: users (through user_shows), seasons
+		- poster image: https://image.tmdb.org/t/p/w185 + poster_path
+		- methods: all_episodes (concat episodes for each season)
 	- user_show
 		- user_id, show_id
 		- belongs_to: user, show
 	- season
-		- show_id
+		- show_id, tmdb_id, 
 		- has_many: episodes
 		- belongs_to: show
 	- episode
