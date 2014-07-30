@@ -4,7 +4,7 @@ class CreateShows < ActiveRecord::Migration
     	t.string :name, null: false
     	t.text :description
     	t.boolean :in_production, null: false
-    	t.string :release_date
+    	t.date :release_date
     	t.string :poster_image_path
     	t.string :created_by
     	t.integer :tmdb_id, null: false

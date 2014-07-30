@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730172807) do
+ActiveRecord::Schema.define(version: 20140730200436) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -29,13 +29,23 @@ ActiveRecord::Schema.define(version: 20140730172807) do
     t.string   "name",              null: false
     t.text     "description"
     t.boolean  "in_production",     null: false
-    t.string   "release_date"
+    t.date     "release_date"
     t.string   "poster_image_path"
     t.string   "created_by"
     t.integer  "tmdb_id",           null: false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
+
+  create_table "user_shows", force: true do |t|
+    t.integer  "user_id"
+    t.integer  "show_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "user_shows", ["show_id"], name: "index_user_shows_on_show_id", using: :btree
+  add_index "user_shows", ["user_id"], name: "index_user_shows_on_user_id", using: :btree
 
   create_table "users", force: true do |t|
     t.string   "username",        null: false
