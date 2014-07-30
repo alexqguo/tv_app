@@ -8,8 +8,8 @@ Notes
 		- user_id, session_token
 		- belongs_to: user
 	- show
-		- name, description?, in_production, release_date, descripton (text), poster_path,
-			first_air_date, created_by (string for names), tmdb_id
+		- name, in_production, release_date, descripton (text), poster_path,
+			created_by (string for names), tmdb_id
 		- has_many: users (through user_shows), seasons
 		- poster image: https://image.tmdb.org/t/p/w185 + poster_path
 		- methods: all_episodes (concat episodes for each season)

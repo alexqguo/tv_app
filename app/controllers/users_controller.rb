@@ -2,6 +2,7 @@ class UsersController < ApplicationController
 
 	def index
 		@users = User.all
+		fail
 	end
 
 	def show
