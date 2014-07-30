@@ -21,7 +21,8 @@ class Show < ActiveRecord::Base
 
 	before_validation :complete_data
 
-	# has_many :users, through: :user_shows
+	has_many :user_shows
+	has_many :users, through: :user_shows
 	# has_many :seasons
 
 	def all_episodes

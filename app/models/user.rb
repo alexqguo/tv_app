@@ -19,6 +19,9 @@ class User < ActiveRecord::Base
 	before_validation :ensure_token
 	has_many :sessions
 
+	has_many :user_shows
+	has_many :shows, through: :user_shows
+
 	def password=(pass)
 		@password = pass
 		self.password_digest = BCrypt::Password.create(pass)
