@@ -1,1 +1,12 @@
 <h1>Search Results</h1>
+
+<ul>
+	<% @results.each do |result| %>
+		<li>
+			<a href="" ><%= result.original_name %></a>
+			<img src="<%= full_image_url(result.poster_path) %>">
+		</li>
+	<% end %>
+</ul>
+
+<%= @results %>
