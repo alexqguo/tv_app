@@ -27,3 +27,6 @@ Notes
 	- episode_view
 		- user_id, episode_id, in_progress (bool)
 		- belongs_to: user, episode
+
+- Todo
+	- friendly_id
