@@ -2,9 +2,13 @@
 
 <ul>
 	<% @results.each do |result| %>
-		<li>
-			<a href="" ><%= result.original_name %></a>
-			<img src="<%= full_image_url(result.poster_path) %>">
+		<li class="search-result">
+			<a href="<%= find_shows_url(result.id) %>" ><%= result.original_name %></a>
+			<% if result.poster_path || result.backdrop_path %>
+				<img src="<%= full_image_url(result) %>">
+			<% else %>
+				<div class="no-search-image"></div>
+			<% end %>
 		</li>
 	<% end %>
 </ul>

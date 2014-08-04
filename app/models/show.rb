@@ -16,8 +16,7 @@
 
 class Show < ActiveRecord::Base
 
-	validates :name, :tmdb_id, :in_production, presence: true
-	validates :name, :tmdb_id, uniqueness: true
+	validates :name, :tmdb_id, presence: true, uniqueness: true
 
 	before_validation :complete_data
 

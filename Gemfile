@@ -10,6 +10,7 @@ gem 'coffee-rails', '~> 4.0.0'
 gem 'jbuilder', '~> 2.0'
 gem 'turbolinks'
 gem 'jquery-rails'
+gem 'friendly_id', '~> 5.0.0'
 
 gem 'themoviedb'
 gem 'bcrypt-ruby', require: 'bcrypt'
