@@ -9,14 +9,14 @@ class ShowsController < ApplicationController
 	end
 
 	def search
-		query = params[:q]
-		@results = query.nil? ? nil : Tmdb::TV.find(query)
+		@query = params[:q]
+		@results = @query.nil? ? nil : Tmdb::TV.find(@query)
 	end
 
 	def find
 		@show = Show.find_by_tmdb_id(params[:tmdb_id])
 		@show = Show.create(tmdb_id: params[:tmdb_id]) unless @show
-		
+
 		redirect_to @show
 	end
 
