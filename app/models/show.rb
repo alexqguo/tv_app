@@ -30,6 +30,7 @@ class Show < ActiveRecord::Base
 		# 	get episodes
 		# end
 		# 
+		# can probably do this more efficiently with sql
 		nil
 	end
 
