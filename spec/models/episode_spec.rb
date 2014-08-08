@@ -7,7 +7,9 @@
 #  season_id     :integer          not null
 #  season_number :integer          not null
 #  tmdb_id       :integer          not null
+#  show_id       :integer          not null
 #  show_tmdb_id  :integer          not null
+#  still_path    :string(255)
 #  description   :text
 #  air_date      :date
 #  created_at    :datetime
