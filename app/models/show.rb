@@ -22,7 +22,7 @@ class Show < ActiveRecord::Base
 
 	has_many :user_shows
 	has_many :users, through: :user_shows
-	# has_many :seasons
+	has_many :seasons
 
 	def all_episodes
 		# avoid unnecessary query with this, don't just do
@@ -44,8 +44,6 @@ class Show < ActiveRecord::Base
 
 	private
 
-	# allows to create show model from only tmdb_id if necessary
-	# when we actually create show models in the controller we won't need to do this
 	def complete_data
 		details = api_detail_call
 
@@ -55,6 +53,12 @@ class Show < ActiveRecord::Base
 		self.release_date = details.first_air_date
 		self.poster_image_path = details.poster_path
 		self.created_by = details.created_by.map { |x| x.name }.join(", ")
-		# do seasons and episodes?
+		
+		get_seasons
 	end
+
+	def get_seasons
+		
+	end
+	
 end

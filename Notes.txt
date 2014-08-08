@@ -30,3 +30,5 @@ Notes
 
 - Todo
 	- friendly_id
+	- set up figaro
+	- add custom validations for poster_path

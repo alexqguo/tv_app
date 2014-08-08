@@ -11,10 +11,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140730200436) do
+ActiveRecord::Schema.define(version: 20140808165319) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "seasons", force: true do |t|
+    t.integer  "season_number", null: false
+    t.integer  "show_id",       null: false
+    t.integer  "tmdb_id",       null: false
+    t.string   "poster_path"
+    t.text     "description"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "seasons", ["show_id"], name: "index_seasons_on_show_id", using: :btree
+  add_index "seasons", ["tmdb_id"], name: "index_seasons_on_tmdb_id", using: :btree
 
   create_table "sessions", force: true do |t|
     t.string   "session_token", null: false
