@@ -6,6 +6,7 @@
 #  season_number :integer          not null
 #  show_id       :integer          not null
 #  tmdb_id       :integer          not null
+#  show_tmdb_id  :integer          not null
 #  poster_path   :string(255)
 #  description   :text
 #  created_at    :datetime

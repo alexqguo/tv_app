@@ -21,7 +21,7 @@ Notes
 		- has_many: episodes
 		- belongs_to: show
 	- episode
-		- name, season_id, release_date
+		- name, season_id, release_date, episode_number
 		- has_many: episode_views
 		- belongs_to: season
 	- episode_view

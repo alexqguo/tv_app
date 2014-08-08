@@ -52,6 +52,7 @@ class Show < ActiveRecord::Base
 			self.seasons.create({
 				season_number: tmdb_season.season_number,
 				tmdb_id: tmdb_season.id,
+				show_tmdb_id: self.tmdb_id,
 				description: tmdb_season.overview,
 				poster_path: tmdb_season.poster_path
 			})

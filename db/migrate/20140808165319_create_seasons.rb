@@ -4,6 +4,7 @@ class CreateSeasons < ActiveRecord::Migration
     	t.integer :season_number, null: false
     	t.integer :show_id, null: false
     	t.integer :tmdb_id, null: false
+      t.integer :show_tmdb_id, null: false
     	t.string :poster_path
     	t.text :description
 
