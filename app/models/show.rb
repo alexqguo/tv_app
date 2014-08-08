@@ -42,6 +42,25 @@ class Show < ActiveRecord::Base
 		Tmdb::TV.detail(self.tmdb_id)
 	end
 
+	def get_seasons # make this private later
+		season_idx = 1
+
+		loop do
+			tmdb_season = Tmdb::Season.detail(self.tmdb_id, season_idx)
+			break unless tmdb_season.season_number
+
+			self.seasons.create({
+				season_number: tmdb_season.season_number,
+				tmdb_id: tmdb_season.id,
+				description: tmdb_season.overview,
+				poster_path: tmdb_season.poster_path
+			})
+
+			season_idx += 1
+		end
+
+	end
+
 	private
 
 	def complete_data
@@ -57,8 +76,4 @@ class Show < ActiveRecord::Base
 		get_seasons
 	end
 
-	def get_seasons
-		
-	end
-	
 end

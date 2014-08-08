@@ -15,7 +15,7 @@
 class Season < ActiveRecord::Base
 	validates :season_number, :show_id, :tmdb_id, presence: true
 
-	before_validation :complete_data
+	before_save :get_episodes
 
 	belongs_to :show
 	# has_many :episodes
@@ -24,13 +24,11 @@ class Season < ActiveRecord::Base
 		"https://image.tmdb.org/t/p/w185" + self.poster_path
 	end
 
-	private
-
-	def complete_data
-		
+	def api_detail_call
+		Tmdb::Season.detail(self.tmdb_id)
 	end
 
-	def get_episodes
+	def get_episodes # make this private later
 		
 	end
 
