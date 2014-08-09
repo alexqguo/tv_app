@@ -6,6 +6,7 @@ class ShowsController < ApplicationController
 
 	def show
 		@show = Show.find_by_id(params[:id])
+		@seasons = @show.seasons
 	end
 
 	def search

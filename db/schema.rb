@@ -17,12 +17,13 @@ ActiveRecord::Schema.define(version: 20140808201712) do
   enable_extension "plpgsql"
 
   create_table "episodes", force: true do |t|
-    t.string   "name",          null: false
-    t.integer  "season_id",     null: false
-    t.integer  "season_number", null: false
-    t.integer  "tmdb_id",       null: false
-    t.integer  "show_id",       null: false
-    t.integer  "show_tmdb_id",  null: false
+    t.string   "name",           null: false
+    t.integer  "season_id",      null: false
+    t.integer  "season_number",  null: false
+    t.integer  "episode_number", null: false
+    t.integer  "tmdb_id",        null: false
+    t.integer  "show_id",        null: false
+    t.integer  "show_tmdb_id",   null: false
     t.string   "still_path"
     t.text     "description"
     t.date     "air_date"

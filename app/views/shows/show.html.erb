@@ -8,4 +8,18 @@
 <div class="episodes">
 	<h2>Episodes</h2>
 	<div class="divider"></div>
+	<ul>
+		<% @seasons.each do |s| %>
+			<li>
+				<h3>Season <%= s.season_number %></h3>
+				<ul>
+					<% s.episodes.each do |s| %>
+						<li>
+							<%= s.episode_string %> <%= s.name %>
+						</li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ul>
 </div>

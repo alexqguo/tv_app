@@ -40,6 +40,7 @@ class Season < ActiveRecord::Base
 				name: episode.name,
 				season_id: self.id,
 				season_number: self.season_number,
+				episode_number: episode.episode_number,
 				tmdb_id: episode.id,
 				show_id: self.show_id,
 				show_tmdb_id: self.show_tmdb_id,
