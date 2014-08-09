@@ -4,7 +4,7 @@ Core SCSS file
 
 @import "vars";
 
-html, body, header, nav, h1, h3, ul, li, div, footer, form, input, a, select, label, textarea {
+html, body, header, nav, h1, h2, h3, ul, li, div, footer, form, input, a, select, label, textarea {
 	border: 0;
 	margin: 0;
   	padding: 0;
@@ -13,11 +13,32 @@ html, body, header, nav, h1, h3, ul, li, div, footer, form, input, a, select, la
 }
 
 body {
+	margin: 0 20px;
 	font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+h1 {
+	font-size: 42px;
+}
+
+h2 {
+	font-size: 32px;
 }
 
 .hidden {
 	display: none;
+}
+
+.clearfix:after {
+	clear: both;
+ 	content: "";
+	display: block;
+}
+
+.divider {
+	width: 100%;
+	margin: 5px 0;
+	border-bottom: 1px solid $gray;
 }
 
 .modal {

@@ -1,5 +1,11 @@
-<h1><%= @show.name %></h1>
+<div class="basic-info clearfix">
+	<img class="show-image" src="<%= @show.full_image_url %>">
+	<h1><%= @show.name %></h1>
+	**more basic info**
+	<p><%= @show.description %></p>
+</div>
 
-<p>
-	<%= @show.description %>
-</p>
+<div class="episodes">
+	<h2>Episodes</h2>
+	<div class="divider"></div>
+</div>
