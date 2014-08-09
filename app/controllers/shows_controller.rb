@@ -15,9 +15,17 @@ class ShowsController < ApplicationController
 
 	def find
 		@show = Show.find_by_tmdb_id(params[:tmdb_id])
-		@show = Show.create(tmdb_id: params[:tmdb_id]) unless @show
+		unless @show
+			@show = Show.create(tmdb_id: params[:tmdb_id])
+			@show.get_seasons
+		end
 
 		redirect_to @show
+	end
+
+	private
+	def show_params
+		# TODO
 	end
 
 end

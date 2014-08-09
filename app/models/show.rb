@@ -73,8 +73,6 @@ class Show < ActiveRecord::Base
 		self.release_date = details.first_air_date
 		self.poster_image_path = details.poster_path
 		self.created_by = details.created_by.map { |x| x.name }.join(", ")
-		
-		get_seasons
 	end
 
 end

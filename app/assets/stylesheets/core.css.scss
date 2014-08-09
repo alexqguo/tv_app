@@ -1,0 +1,49 @@
+/*
+Core SCSS file
+*/
+
+@import "vars";
+
+html, body, header, nav, h1, h3, ul, li, div, footer, form, input, a, select, label, textarea {
+	border: 0;
+	margin: 0;
+  	padding: 0;
+	font: inherit;
+	vertical-align: baseline;
+}
+
+body {
+	font-family: "Source Sans Pro", Arial, sans-serif;
+}
+
+.hidden {
+	display: none;
+}
+
+.modal {
+	position: absolute;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	background-color: $black;
+	opacity: 0.3;
+	z-index: $modal-zindex;
+}
+
+.loading-modal {
+	position: absolute;
+	top: 30%;
+	left: 50%;
+	z-index: $modal-overlay;
+
+	.loading-text {
+		position: relative;
+		left: -50%;
+		border: 1px solid $light-gray;
+		box-shadow: 0 0 5px $gray;
+		padding: 20px 50px;
+		background-color: white;
+		border-radius: 3px;
+		font-size: 30px;
+	}
+}

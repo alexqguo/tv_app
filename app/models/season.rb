@@ -16,7 +16,7 @@
 class Season < ActiveRecord::Base
 	validates :season_number, :show_id, :tmdb_id, presence: true
 
-	before_save :get_episodes
+	after_save :get_episodes
 
 	belongs_to :show
 	has_many :episodes
@@ -33,7 +33,7 @@ class Season < ActiveRecord::Base
 		episode_idx = 1
 
 		loop do
-			episode = Tmdb::Episode(self.show_tmdb_id, self.season_number, episode_idx)
+			episode = Tmdb::Episode.detail(self.show_tmdb_id, self.season_number, episode_idx)
 			break unless episode.episode_number
 			# create and save episode
 			self.episodes.create({
