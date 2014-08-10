@@ -66,6 +66,11 @@ class Show < ActiveRecord::Base
 
 	end
 
+	# maybe make this something better?
+	def need_to_fetch?
+		self.seasons.count == 0
+	end
+
 	private
 
 	def complete_data

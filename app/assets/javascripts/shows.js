@@ -10,5 +10,13 @@ $(function() {
 		$(".modal, .loading-modal").show();
 	}
 
+	function showEpisodes() {
+		$(".episodes").removeClass("need-to-fetch");
+	}
+
 	$(".show-link").click(displayLoadingModal);
+
+	if ($(".episodes").hasClass("need-to-fetch")) {
+		$.post("shows/1/fetch_episodes", showEpisodes);
+	}
 });

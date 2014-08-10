@@ -5,7 +5,7 @@
 	<p><%= @show.description %></p>
 </div>
 
-<div class="episodes">
+<div class="episodes <%= @show.need_to_fetch? ? 'need-to-fetch' : '' %>">
 	<h2>Episodes</h2>
 	<div class="divider"></div>
 	<ul>

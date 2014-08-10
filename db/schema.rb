@@ -11,10 +11,21 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140808201712) do
+ActiveRecord::Schema.define(version: 20140810172126) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "episode_views", force: true do |t|
+    t.integer  "episode_id",             null: false
+    t.integer  "user_id",                null: false
+    t.integer  "view_count", default: 1, null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "episode_views", ["episode_id"], name: "index_episode_views_on_episode_id", using: :btree
+  add_index "episode_views", ["user_id"], name: "index_episode_views_on_user_id", using: :btree
 
   create_table "episodes", force: true do |t|
     t.string   "name",           null: false
