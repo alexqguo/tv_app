@@ -29,6 +29,10 @@ class Season < ActiveRecord::Base
 		Tmdb::Season.detail(self.tmdb_id)
 	end
 
+	def sorted_episodes
+		self.episodes.order(:episode_number)
+	end
+
 	def get_episodes # make this private later?
 		episode_idx = 1
 

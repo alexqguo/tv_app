@@ -34,6 +34,10 @@ class Show < ActiveRecord::Base
 		nil
 	end
 
+	def sorted_seasons
+		self.seasons.order(:season_number)
+	end
+
 	def full_image_url
 		"https://image.tmdb.org/t/p/w185" + self.poster_image_path
 	end
