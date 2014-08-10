@@ -21,7 +21,7 @@ class Episode < ActiveRecord::Base
 	validates :name, :season_id, :season_number, :tmdb_id, :show_id, :show_tmdb_id, presence: true
 
 	belongs_to :season
-	# has_many: episode_views
+	has_many :episode_views
 
 	def still_image_url
 		"https://image.tmdb.org/t/p/w185" + self.still_path # TODO: change the prefix

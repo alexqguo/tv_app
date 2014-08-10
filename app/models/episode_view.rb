@@ -21,4 +21,8 @@ class EpisodeView < ActiveRecord::Base
 		self.view_count += 1
 		self.save!
 	end
+
+	def self.find_by_user_and_episode(user_id, episode_id)
+		where({ episode_id: episode_id, user_id: user_id }).first
+	end
 end

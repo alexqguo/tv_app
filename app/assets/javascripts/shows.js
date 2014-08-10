@@ -13,13 +13,12 @@ $(function() {
 	}
 
 	function handleEpisodeView(data) {
-		console.log(data);
+		// add css class or do something
 	}
 
 	function viewEpisode(evt) {
 		evt.preventDefault();
 		var episodeId = $(evt.target).data("episode-id");
-		console.log(episodeId);
 		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView);
 	}
 

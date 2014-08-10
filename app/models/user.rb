@@ -19,6 +19,7 @@ class User < ActiveRecord::Base
 	has_many :sessions
 
 	has_many :user_shows
+	has_many :episode_views
 	has_many :shows, through: :user_shows
 
 	def password=(pass)
