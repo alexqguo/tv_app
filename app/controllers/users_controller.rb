@@ -35,6 +35,12 @@ class UsersController < ApplicationController
 		fail
 	end
 
+	def view_episode
+		if request.xhr?
+			# needs before_filter
+		end
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:username, :password)

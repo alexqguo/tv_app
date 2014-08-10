@@ -11,7 +11,12 @@ class ShowsController < ApplicationController
 
 	def search
 		@query = params[:q]
-		@results = @query.nil? ? nil : Tmdb::TV.find(@query)
+		
+		if @query == ""
+			@results = []
+		else
+			@results = @query.nil? ? nil : Tmdb::TV.find(@query)
+		end
 	end
 
 	def find
