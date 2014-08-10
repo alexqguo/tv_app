@@ -3,20 +3,21 @@ This file contains javascript for shows pages
 */
 
 $(function() {
-	/*
-		Eventually we should wait to save seasons/episodes until we save the show and load its page
-	*/
-	function displayLoadingModal() {
+	function displayLoadingModal() { //don't really need this right now
 		$(".modal, .loading-modal").show();
 	}
 
-	function showEpisodes() {
-		$(".episodes").removeClass("need-to-fetch");
+	function showEpisodes(data) {
+		$("#show-episodes").removeClass("need-to-fetch");
+		$(".episodes").html(data);
 	}
 
-	$(".show-link").click(displayLoadingModal);
-
-	if ($(".episodes").hasClass("need-to-fetch")) {
-		$.post("shows/1/fetch_episodes", showEpisodes);
+	// $(".show-link").click(displayLoadingModal);
+	
+	if ($("#show-episodes").hasClass("need-to-fetch")) {
+		alert("fetching");
+		var showId = $("#show").data("id");
+		$.post("/shows/" + showId + "/fetch_episodes", showEpisodes);
 	}
+
 });

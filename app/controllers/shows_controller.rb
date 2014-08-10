@@ -17,7 +17,7 @@ class ShowsController < ApplicationController
 	def find
 		@show = Show.find_by_tmdb_id(params[:tmdb_id])
 		unless @show
-			@show = Show.create(show_params)
+			@show = Show.create(tmdb_id: params[:tmdb_id])
 			# @show.get_seasons
 		end
 
@@ -26,15 +26,11 @@ class ShowsController < ApplicationController
 
 	def fetch_episodes
 		if request.xhr?
-			fail
-			# @show = something
-			# @show.get_seasons
-		end
-	end
+			@show = Show.find(params[:id])
+			@show.get_seasons
 
-	private
-	def show_params
-		params.require(:show).permit(:tmdb_id)
+			render partial: "episodes", locals: { seasons: @show.sorted_seasons }
+		end
 	end
 
 end

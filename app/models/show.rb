@@ -22,7 +22,7 @@ class Show < ActiveRecord::Base
 
 	has_many :user_shows
 	has_many :users, through: :user_shows
-	has_many :seasons
+	has_many :seasons, dependent: :destroy
 
 	def all_episodes
 		# avoid unnecessary query with this, don't just do

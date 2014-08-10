@@ -1,0 +1,16 @@
+<div class="episodes">
+	<ul>
+		<% seasons.each do |s| %>
+			<li>
+				<h3>Season <%= s.season_number %></h3>
+				<ul>
+					<% s.sorted_episodes.each do |episode| %>
+						<li>
+							<%= episode.episode_string %> <%= episode.name %>
+						</li>
+					<% end %>
+				</ul>
+			</li>
+		<% end %>
+	</ul>
+</div>

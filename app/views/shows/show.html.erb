@@ -1,25 +1,17 @@
-<div class="basic-info clearfix">
-	<img class="show-image" src="<%= @show.full_image_url %>">
-	<h1><%= @show.name %></h1>
-	**more basic info**
-	<p><%= @show.description %></p>
+<div id="show" data-id="<%= @show.id %>">
+
+	<div class="basic-info clearfix">
+		<img class="show-image" src="<%= @show.full_image_url %>">
+		<h1><%= @show.name %></h1>
+		**more basic info**
+		<p><%= @show.description %></p>
+	</div>
+
+	<div id="show-episodes" class="<%= @show.need_to_fetch? ? 'need-to-fetch' : '' %>">
+		<h2>Episodes</h2>
+		<div class="divider"></div>
+		<%= render "episodes", seasons: @seasons %>
+	</div>
+
 </div>
 
-<div class="episodes <%= @show.need_to_fetch? ? 'need-to-fetch' : '' %>">
-	<h2>Episodes</h2>
-	<div class="divider"></div>
-	<ul>
-		<% @seasons.each do |s| %>
-			<li>
-				<h3>Season <%= s.season_number %></h3>
-				<ul>
-					<% s.sorted_episodes.each do |episode| %>
-						<li>
-							<%= episode.episode_string %> <%= episode.name %>
-						</li>
-					<% end %>
-				</ul>
-			</li>
-		<% end %>
-	</ul>
-</div>

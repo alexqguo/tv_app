@@ -19,7 +19,7 @@ class Season < ActiveRecord::Base
 	after_save :get_episodes
 
 	belongs_to :show
-	has_many :episodes
+	has_many :episodes, dependent: :destroy
 
 	def full_image_url
 		"https://image.tmdb.org/t/p/w185" + self.poster_path
