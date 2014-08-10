@@ -16,7 +16,6 @@ class User < ActiveRecord::Base
 	validates :password, length: { minimum: 6, allow_nil: true }
 	validates :username, :password_digest, presence: true
 
-	before_validation :ensure_token
 	has_many :sessions
 
 	has_many :user_shows

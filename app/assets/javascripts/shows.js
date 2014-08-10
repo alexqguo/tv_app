@@ -12,8 +12,23 @@ $(function() {
 		$(".episodes").html(data);
 	}
 
+	function handleEpisodeView(data) {
+		console.log(data);
+	}
+
+	function viewEpisode(evt) {
+		evt.preventDefault();
+		var episodeId = $(evt.target).data("episode-id");
+		console.log(episodeId);
+		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView);
+	}
+
 	// $(".show-link").click(displayLoadingModal);
+
+	// Saving episode view
+	$(".episode-view-link").click(viewEpisode);
 	
+	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
 		alert("fetching");
 		var showId = $("#show").data("id");

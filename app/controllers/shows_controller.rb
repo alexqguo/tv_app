@@ -23,7 +23,6 @@ class ShowsController < ApplicationController
 		@show = Show.find_by_tmdb_id(params[:tmdb_id])
 		unless @show
 			@show = Show.create(tmdb_id: params[:tmdb_id])
-			# @show.get_seasons
 		end
 
 		redirect_to @show
@@ -31,7 +30,7 @@ class ShowsController < ApplicationController
 
 	def fetch_episodes
 		if request.xhr?
-			@show = Show.find(params[:id])
+			@show = Show.find(params[:show_id])
 			@show.get_seasons
 
 			render partial: "episodes", locals: { seasons: @show.sorted_seasons }
