@@ -12,14 +12,15 @@ $(function() {
 		$(".episodes").html(data);
 	}
 
-	function handleEpisodeView(data) {
+	function handleEpisodeView(evt, data) {
 		// add css class or do something
+		$(evt.target).addClass("viewed");
 	}
 
 	function viewEpisode(evt) {
 		evt.preventDefault();
 		var episodeId = $(evt.target).data("episode-id");
-		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView);
+		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView.bind(undefined, evt));
 	}
 
 	// $(".show-link").click(displayLoadingModal);

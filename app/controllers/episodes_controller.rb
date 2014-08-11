@@ -10,9 +10,9 @@ class EpisodesController < ApplicationController
 			if view
 				view.add_view!
 			else
-				current_user.episode_views.create(episode_id: params[:episode_id])
+				view = current_user.episode_views.create(episode_id: params[:episode_id])
 			end
-			render json: {}, status: 201
+			render json: {view_count: view.view_count}, status: 201
 		end
 	end
 

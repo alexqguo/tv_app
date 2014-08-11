@@ -7,7 +7,8 @@
 					<% s.sorted_episodes.each do |episode| %>
 						<li class="episode">
 							<a data-episode-id="<%= episode.id %>" 
-								class="<%= !!current_user ? "episode-view-link" : "" %>"
+								class="<%= !!current_user ? "episode-view-link" : "" %>
+									<%= viewed_by_current_user?(episode) ? "viewed" : "" %>"
 								href="javascript:void(0);">
 								<%= episode.episode_string %> <%= episode.name %>
 							</a>

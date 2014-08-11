@@ -32,4 +32,8 @@
 
 .episode {
 	display: inline-block;
+
+	.viewed {
+		font-style: italic;
+	}
 }
