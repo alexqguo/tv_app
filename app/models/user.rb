@@ -31,6 +31,17 @@ class User < ActiveRecord::Base
 		BCrypt::Password.new(self.password_digest).is_password?(pass)
 	end
 
+	def viewed_episode_ids_for_show(show_id)
+		episodes = Episode.find_by_sql [
+			"select episodes.id from episodes
+			join episode_views on episodes.id=episode_views.episode_id
+			join shows on episodes.show_id=shows.id
+			where shows.id=?", show_id
+		]
+
+		episodes.map(&:id)
+	end
+
 	def self.find_by_credentials(username, password)
 		user = User.find_by_username(username)
 		return nil if user.nil?

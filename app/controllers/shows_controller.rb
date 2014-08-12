@@ -7,6 +7,7 @@ class ShowsController < ApplicationController
 	def show
 		@show = Show.find_by_id(params[:id])
 		@seasons = @show.sorted_seasons
+		@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
 	end
 
 	def search
