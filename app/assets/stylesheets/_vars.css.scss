@@ -10,3 +10,7 @@ $white: #ffffff;
 $black: #000000;
 $modal-zindex: 1;
 $modal-overlay: 2;
+
+@mixin debug {
+	border: 1px dashed black;
+}

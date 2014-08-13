@@ -4,16 +4,16 @@ Core SCSS file
 
 @import "vars";
 
-html, body, header, nav, h1, h2, h3, ul, li, div, footer, form, input, a, select, label, textarea {
+html, body, header, nav, h1, h2, h3, ul, li, div, footer, form, input, a, select, 
+label, textarea {
 	border: 0;
 	margin: 0;
-  	padding: 0;
+	padding: 0;
 	font: inherit;
 	vertical-align: baseline;
 }
 
 body {
-	margin: 0 20px;
 	font-family: "Source Sans Pro", Arial, sans-serif;
 }
 
@@ -27,6 +27,10 @@ h2 {
 
 h3 {
 	font-size: 24px;
+}
+
+ul {
+	list-style-type: none;
 }
 
 .hidden {
@@ -70,5 +74,40 @@ h3 {
 		background-color: white;
 		border-radius: 3px;
 		font-size: 30px;
+	}
+}
+
+#container {
+	width: 1000px;
+	margin: 0 auto;
+	@include debug;
+}
+
+#header-wrap {
+	width: 100%;
+	@include debug;
+
+	#nav {
+		height: 50px;
+
+		.home-link {
+			float: left;
+		}
+
+		.navlist {
+			@include debug;
+			float: right;
+
+			.navlist-item {
+				@include debug;
+				margin: 0 10px;
+				height: 50px;
+				float: left;
+
+				&:hover {
+					cursor: pointer;
+				}
+			}
+		}
 	}
 }
