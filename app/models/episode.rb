@@ -19,7 +19,7 @@
 
 class Episode < ActiveRecord::Base
 	validates :name, :season_id, :season_number, :tmdb_id, :show_id, 
-						:show_tmdb_id, :episode_number presence: true
+						:show_tmdb_id, :episode_number, presence: true
 
 	belongs_to :season
 	has_many :episode_views

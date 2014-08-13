@@ -6,8 +6,13 @@ class ShowsController < ApplicationController
 
 	def show
 		@show = Show.find_by_id(params[:id])
-		@seasons = @show.sorted_seasons
-		@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
+
+		if @show
+			@seasons = @show.sorted_seasons
+			@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
+		else
+			redirect_to root_url
+		end
 	end
 
 	def search
@@ -27,9 +32,15 @@ class ShowsController < ApplicationController
 	def fetch_episodes
 		if request.xhr?
 			@show = Show.find(params[:show_id])
-			@show.get_seasons
 
-			render partial: "episodes", locals: { seasons: @show.sorted_seasons }
+			if @show
+				@show.get_seasons
+				@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
+
+				render partial: "episodes", locals: { seasons: @show.sorted_seasons }
+			else
+				render json: {}, status: 400
+			end
 		end
 	end
 
