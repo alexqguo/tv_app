@@ -6,7 +6,6 @@
 #  name           :string(255)      not null
 #  season_id      :integer          not null
 #  season_number  :integer          not null
-#  episode_number :integer          not null
 #  tmdb_id        :integer          not null
 #  show_id        :integer          not null
 #  show_tmdb_id   :integer          not null
@@ -15,6 +14,7 @@
 #  air_date       :date
 #  created_at     :datetime
 #  updated_at     :datetime
+#  episode_number :integer          not null
 #
 
 class Episode < ActiveRecord::Base
