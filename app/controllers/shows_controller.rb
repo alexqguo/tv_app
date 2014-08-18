@@ -9,9 +9,7 @@ class ShowsController < ApplicationController
 
 		if @show
 			@seasons = @show.sorted_seasons
-			@seasons_count = @show.seasons.count
-			@default_season = 1
-			@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
+			prepare_basic_info
 		else
 			redirect_to root_url
 		end
@@ -37,15 +35,20 @@ class ShowsController < ApplicationController
 
 			if @show
 				@show.get_seasons
-				@seasons_count = @show.seasons.count
-				@default_season = 1
-				@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
-
+				prepare_basic_info
 				render partial: "episodes", locals: { seasons: @show.sorted_seasons }
 			else
 				render json: {}, status: 400
 			end
 		end
+	end
+
+	private
+
+	def prepare_basic_info
+		@seasons_count = @show.seasons.count
+		@default_season = 1
+		@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
 	end
 
 end
