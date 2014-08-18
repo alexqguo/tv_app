@@ -41,7 +41,7 @@ $(function() {
 	
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
-		alert("fetching");
+		alert("Fetching episode data, this may take a minute....");
 		var showId = $("#show").data("id");
 		$.post("/shows/" + showId + "/fetch_episodes", showEpisodes);
 	}
