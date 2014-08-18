@@ -23,6 +23,13 @@ $(function() {
 		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView.bind(undefined, evt));
 	}
 
+	function toggleSeasons(evt) {
+		evt.preventDefault();
+		var season = $(evt.target).data("season-number");
+		currentSeason.hide();
+		currentSeason = $(".season-" + season).show();
+	}
+
 	// $(".show-link").click(displayLoadingModal);
 
 	// Saving episode view
@@ -34,5 +41,14 @@ $(function() {
 		var showId = $("#show").data("id");
 		$.post("/shows/" + showId + "/fetch_episodes", showEpisodes);
 	}
+
+	// Display the default season
+	if ($("#all-seasons").length) {
+		var defaultSeason = $("#all-seasons").data("default-season");
+		var currentSeason = $(".season-" + defaultSeason).show();
+	}
+
+	// Toggle Seasons
+	$(".season-tab").click(toggleSeasons);
 
 });

@@ -1,7 +1,13 @@
 <div class="episodes">
-	<ul>
+	<div class="season-tabs">
+		<% (1..@seasons_count).each do |i| %>
+			<a class="season-tab" href="javascript:void(0);" data-season-number=<%= i %>>Season <%= i %></a>
+		<% end %>
+	</div>
+
+	<ul id="all-seasons" data-default-season="<%= @default_season %>">
 		<% seasons.each do |s| %>
-			<li>
+			<li class="season-block season-<%= s.season_number %>">
 				<h3>Season <%= s.season_number %></h3>
 				<ul>
 					<% s.sorted_episodes.each do |episode| %>

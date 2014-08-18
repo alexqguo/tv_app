@@ -9,6 +9,8 @@ class ShowsController < ApplicationController
 
 		if @show
 			@seasons = @show.sorted_seasons
+			@seasons_count = @show.seasons.count
+			@default_season = 1
 			@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
 		else
 			redirect_to root_url
@@ -35,6 +37,8 @@ class ShowsController < ApplicationController
 
 			if @show
 				@show.get_seasons
+				@seasons_count = @show.seasons.count
+				@default_season = 1
 				@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
 
 				render partial: "episodes", locals: { seasons: @show.sorted_seasons }
