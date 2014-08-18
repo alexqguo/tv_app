@@ -23,8 +23,18 @@
 }
 
 .episodes {
-	.season-block {
-		display: none;
+	.season-tabs {
+		.season-tab {
+			&.current-season {
+				font-weight: bold;
+			}
+		}
+	}
+
+	#all-seasons {
+		.season-block {
+			display: none;
+		}
 	}
 }
 

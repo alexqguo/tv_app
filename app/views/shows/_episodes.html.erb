@@ -1,7 +1,9 @@
 <div class="episodes">
 	<div class="season-tabs">
 		<% (1..@seasons_count).each do |i| %>
-			<a class="season-tab" href="javascript:void(0);" data-season-number=<%= i %>>Season <%= i %></a>
+			<a class="season-tab season-tab-<%= i %>" href="javascript:void(0);" data-season-number=<%= i %>>
+				Season <%= i %>
+			</a>
 		<% end %>
 	</div>
 

@@ -25,9 +25,13 @@ $(function() {
 
 	function toggleSeasons(evt) {
 		evt.preventDefault();
-		var season = $(evt.target).data("season-number");
+		var $target = $(evt.target);
+		var season = $target.data("season-number");
+
 		currentSeason.hide();
 		currentSeason = $(".season-" + season).show();
+		$(".season-tab.current-season").removeClass("current-season");
+		$target.addClass("current-season");
 	}
 
 	// $(".show-link").click(displayLoadingModal);
@@ -46,6 +50,7 @@ $(function() {
 	if ($("#all-seasons").length) {
 		var defaultSeason = $("#all-seasons").data("default-season");
 		var currentSeason = $(".season-" + defaultSeason).show();
+		$(".season-tab-" + defaultSeason).addClass("current-season");
 	}
 
 	// Toggle Seasons
