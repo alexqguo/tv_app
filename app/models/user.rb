@@ -44,6 +44,10 @@ class User < ActiveRecord::Base
 		episodes.map(&:id)
 	end
 
+	def is_following?(user)
+		self.followed_users.include?(user)
+	end
+
 	def self.find_by_credentials(username, password)
 		user = User.find_by_username(username)
 		return nil if user.nil?

@@ -32,5 +32,6 @@ Notes
 	- friendly_id
 	- set up figaro
 	- add custom validations for poster_path
+	- actually implement UserShow
 	- Shows Controller
 		- do actual calculation for default_season

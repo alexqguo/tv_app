@@ -1,3 +1,16 @@
 <h1><%= @user.username %></h1>
 
+<% if !!current_user && current_user != @user %>
+	<div class="follow-block">
+		<a href="javascript:void(0);" class="follow-link follow <%= "hidden" if @following %>"
+			data-url="<%= user_follow_user_url @user %>">
+			Follow
+		</a>
+		<a href="javascript:void(0);" class="follow-link unfollow <%= "hidden" unless @following %>" 
+			data-url="<%= user_unfollow_user_url @user %>">
+			Unfollow
+		</a>
+	</div>
+<% end %>
+
 <a href="<%= root_url %>">Home</a>

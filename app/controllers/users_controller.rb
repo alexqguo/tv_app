@@ -7,6 +7,10 @@ class UsersController < ApplicationController
 	def show
 		@user = User.find_by_id(params[:id])
 
+		if !!current_user && current_user != @user
+			@following = current_user.is_following?(@user)
+		end
+
 		unless @user
 			render json: "user not found"
 		end
@@ -36,9 +40,15 @@ class UsersController < ApplicationController
 		fail
 	end
 
-	def view_episode
+	def follow_user
 		if request.xhr?
-			# needs before_filter
+			render json: {"asdf" => "asdf"}
+		end
+	end
+
+	def unfollow_user
+		if request.xhr?
+			render json: {"asdf" => "asdf"}
 		end
 	end
 
