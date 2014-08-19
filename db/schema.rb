@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140819013525) do
+ActiveRecord::Schema.define(version: 20140819015954) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -62,6 +62,17 @@ ActiveRecord::Schema.define(version: 20140819013525) do
   add_index "episodes", ["season_id"], name: "index_episodes_on_season_id", using: :btree
   add_index "episodes", ["show_id"], name: "index_episodes_on_show_id", using: :btree
   add_index "episodes", ["tmdb_id"], name: "index_episodes_on_tmdb_id", using: :btree
+
+  create_table "follows", force: true do |t|
+    t.integer  "follower_id", null: false
+    t.integer  "followed_id", null: false
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  add_index "follows", ["followed_id"], name: "index_follows_on_followed_id", using: :btree
+  add_index "follows", ["follower_id", "followed_id"], name: "index_follows_on_follower_id_and_followed_id", unique: true, using: :btree
+  add_index "follows", ["follower_id"], name: "index_follows_on_follower_id", using: :btree
 
   create_table "seasons", force: true do |t|
     t.integer  "season_number", null: false

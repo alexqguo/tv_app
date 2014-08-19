@@ -21,6 +21,8 @@ class User < ActiveRecord::Base
 	has_many :user_shows
 	has_many :episode_views
 	has_many :shows, through: :user_shows
+	has_many :follows, foreign_key: "follower_id", dependent: :destroy
+	has_many :followed_users, through: :follows, source: :followed
 
 	def password=(pass)
 		@password = pass
