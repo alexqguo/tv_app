@@ -14,6 +14,7 @@ gem 'figaro'
 gem 'themoviedb'
 gem 'bcrypt-ruby', require: 'bcrypt'
 gem 'backbone-on-rails'
+gem 'public_activity'
 
 group :doc do 
   gem 'sdoc', '~> 0.4.0'

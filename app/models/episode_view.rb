@@ -11,6 +11,8 @@
 #
 
 class EpisodeView < ActiveRecord::Base
+	include PublicActivity::Common
+	
 	validates :episode_id, :user_id, :view_count, presence: true
 	validates_numericality_of :view_count, greater_than_or_equal_to: 0
 
