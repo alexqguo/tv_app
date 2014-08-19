@@ -1,8 +1,7 @@
 Rails.application.routes.draw do
   
   resources :users, except: :destroy do
-    post :follow_user
-    delete :unfollow_user
+    post :toggle_follow
   end
 
   resources :episodes, only: [] do

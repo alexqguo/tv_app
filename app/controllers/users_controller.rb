@@ -40,15 +40,21 @@ class UsersController < ApplicationController
 		fail
 	end
 
-	def follow_user
+	def toggle_follow
 		if request.xhr?
-			render json: {"asdf" => "asdf"}
-		end
-	end
+			@user = User.find(params[:user_id])
 
-	def unfollow_user
-		if request.xhr?
-			render json: {"asdf" => "asdf"}
+			if @user && !!current_user
+				if current_user.is_following?(@user)
+					current_user.follow_for_user(@user).destroy
+					render json: {"nowFollowing" => false}
+				else
+					current_user.follows.create(followed_id: @user.id)
+					render json: {"nowFollowing" => true}
+				end
+			else
+				render json: {}, status: 400
+			end
 		end
 	end
 

@@ -48,6 +48,11 @@ class User < ActiveRecord::Base
 		self.followed_users.include?(user)
 	end
 
+	def follow_for_user(user)
+		follow = self.follows.where(followed_id: user.id)
+		follow.nil? ? nil : follow.first
+	end
+
 	def self.find_by_credentials(username, password)
 		user = User.find_by_username(username)
 		return nil if user.nil?
