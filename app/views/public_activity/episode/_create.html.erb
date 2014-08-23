@@ -1,0 +1,4 @@
+<a href="<%= user_url activity.owner %>"><%= activity.owner.username %></a> 
+ watched the episode 
+<a data-no-turbolink href="<%= show_url activity.trackable.show %>"><%= activity.trackable.name %></a> 
+(<a data-no-turbolink href="<%= show_url activity.trackable.show %>"><%= activity.trackable.show.name %></a> <%= activity.trackable.episode_string %>)

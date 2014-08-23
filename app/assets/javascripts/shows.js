@@ -39,6 +39,9 @@ $(function() {
 	// Saving episode view
 	$(".episode-view-link").click(viewEpisode);
 	
+	// Toggle Seasons
+	$(".season-tab").click(toggleSeasons);
+	
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
 		alert("Fetching episode data, this may take a minute....");
@@ -52,8 +55,5 @@ $(function() {
 		var currentSeason = $(".season-" + defaultSeason).show();
 		$(".season-tab-" + defaultSeason).addClass("current-season");
 	}
-
-	// Toggle Seasons
-	$(".season-tab").click(toggleSeasons);
 
 });

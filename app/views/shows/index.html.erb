@@ -4,3 +4,13 @@
 	<input type="text" placeholder="Find a show..." name="q">
 	<input type="submit" value="Search">
 </form>
+
+<div class="activities">
+
+	<h2>Recent Activity</h2>
+
+	<% @activities.each do |activity| %>
+		<%= render_activity activity %> <br>
+	<% end %>
+	
+</div>

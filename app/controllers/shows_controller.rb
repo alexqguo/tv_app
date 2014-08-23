@@ -1,7 +1,12 @@
 class ShowsController < ApplicationController
 
 	def index
-		# popular shows?
+		@activities = []
+
+		if !!current_user
+			@activities = PublicActivity::Activity.order("created_at desc")
+				.where(owner_id: current_user.followed_user_ids, owner_type: "User")
+		end
 	end
 
 	def show

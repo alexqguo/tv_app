@@ -9,11 +9,11 @@ class EpisodesController < ApplicationController
 
 			if view
 				view.add_view!
-				view.create_activity :create, owner: current_user
 			else
 				view = current_user.episode_views.create(episode_id: params[:episode_id])
-				view.create_activity :create, owner: current_user
 			end
+
+			view.episode.create_activity :create, owner: current_user
 			render json: {view_count: view.view_count}, status: 201
 		end
 	end

@@ -18,6 +18,8 @@
 #
 
 class Episode < ActiveRecord::Base
+	include PublicActivity::Common
+	
 	validates :name, :season_id, :season_number, :tmdb_id, :show_id, 
 						:show_tmdb_id, :episode_number, presence: true
 
