@@ -14,7 +14,7 @@ $(function() {
 
 	function handleEpisodeView(evt, data) {
 		// add css class or do something
-		$(evt.target).addClass("viewed");
+		$(evt.target).parent().addClass("viewed");
 	}
 
 	function viewEpisode(evt) {

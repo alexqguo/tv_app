@@ -11,12 +11,12 @@
 		<% seasons.each do |s| %>
 			<li class="season-block season-<%= s.season_number %>">
 				<h3>Season <%= s.season_number %></h3>
-				<ul>
+				<ul class="episodes-list">
 					<% s.sorted_episodes.each do |episode| %>
-						<li class="episode">
+						<li class="episode 
+								<%= viewed_by_current_user?(episode) ? "viewed" : "" %>">
 							<a data-episode-id="<%= episode.id %>" 
-								class="<%= !!current_user ? "episode-view-link" : "" %>
-									<%= viewed_by_current_user?(episode) ? "viewed" : "" %>"
+								class="<%= !!current_user ? "episode-view-link" : "" %>"
 								href="javascript:void(0);">
 								<%= episode.episode_string %> <%= episode.name %>
 							</a>

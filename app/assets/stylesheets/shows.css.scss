@@ -2,6 +2,8 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+@import "vars";
+
 .no-search-image {
 	width: 154px;
 	height: 225px;
@@ -34,18 +36,27 @@
 	#all-seasons {
 		.season-block {
 			display: none;
+			@include debug;
+
+			.episodes-list {
+				width: 300px;
+
+				.episode {
+					display: block;
+					padding: 5px 10px;
+					margin: 5px 0;
+					border: 1px solid black;
+
+					&.viewed {
+						font-style: italic;
+						background-color: salmon;
+					}
+				}
+			}
 		}
 	}
-}
 
+}
 .need-to-fetch .episodes {
 	display: none;
-}
-
-.episode {
-	display: inline-block;
-
-	.viewed {
-		font-style: italic;
-	}
 }
