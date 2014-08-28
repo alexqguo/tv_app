@@ -23,6 +23,11 @@ $(function() {
 		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView.bind(undefined, evt));
 	}
 
+	function showEpisodeDetails(evt) {
+		$(".episode-info").hide();
+		$(evt.currentTarget).children(".episode-info").show();
+	}
+
 	function toggleSeasons(evt) {
 		evt.preventDefault();
 		var $target = $(evt.target);
@@ -38,6 +43,9 @@ $(function() {
 
 	// Saving episode view
 	$(".episode-view-link").click(viewEpisode);
+
+	// Showing episode details
+	$(".episode").click(showEpisodeDetails);
 	
 	// Toggle Seasons
 	$(".season-tab").click(toggleSeasons);
