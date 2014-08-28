@@ -40,7 +40,6 @@
 		.season-block {
 			display: none;
 			position: relative;
-			@include debug;
 
 			.episodes-list {
 				width: 300px;
@@ -81,7 +80,7 @@
 
 	#highlighted-episode {
 		float: right;
-		width: 660px;
+		width: 675px;
 		margin-top: 40px;
 
 		.episode-info {
