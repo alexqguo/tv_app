@@ -34,6 +34,9 @@
 	}
 
 	#all-seasons {
+		float: left;
+		margin-right: 20px;
+
 		.season-block {
 			display: none;
 			position: relative;
@@ -48,17 +51,6 @@
 					margin: 5px 0;
 					border: 1px solid black;
 
-					.episode-info {
-						display: none;
-						position: absolute;
-						width: 630px;
-						left: 330px;
-						top: 35px;
-
-						padding: 5px 10px;
-						@include debug;
-					}
-
 					&.viewed {
 						font-style: italic;
 						background-color: salmon;
@@ -67,6 +59,25 @@
 					&:hover {
 						cursor: pointer;
 					}
+				}
+			}
+		}
+	}
+
+	#highlighted-episode {
+		float: right;
+		width: 660px;
+
+		.episode-info {
+			display: none;
+			padding: 5px 10px;
+			@include debug;
+
+			.episode-details {
+
+				.episode-image {
+					float: left;
+					margin-right: 10px;
 				}
 			}
 		}

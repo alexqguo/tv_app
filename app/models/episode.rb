@@ -27,7 +27,7 @@ class Episode < ActiveRecord::Base
 	has_many :episode_views
 
 	def still_image_url
-		"https://image.tmdb.org/t/p/w185" + self.still_path # TODO: change the prefix
+		"https://image.tmdb.org/t/p/w185" + self.still_path # TODO: change the prefix, return nil if no still_path
 	end
 
 	def show

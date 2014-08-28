@@ -25,7 +25,8 @@ $(function() {
 
 	function showEpisodeDetails(evt) {
 		$(".episode-info").hide();
-		$(evt.currentTarget).children(".episode-info").show();
+		var id = $(evt.currentTarget).data("episode-id");
+		$(".episode-" + id).show();
 	}
 
 	function toggleSeasons(evt) {
