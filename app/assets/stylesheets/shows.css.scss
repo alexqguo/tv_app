@@ -51,13 +51,28 @@
 					margin: 5px 0;
 					border: 1px solid black;
 
-					&.viewed {
-						font-style: italic;
-						background-color: salmon;
+					.episode-name {
+						display: block;
 					}
 
-					&:hover {
-						cursor: pointer;
+					.episode-button {
+						text-decoration: none;
+						font-size: 12px;
+						font-weight: 700;
+						color: white;
+						background-color: $blue;
+						padding: 2px 8px;
+						margin-right: 5px;
+						border-radius: 4px;
+					}
+
+					&.viewed {
+						font-style: italic;
+						background-color: $green-success;
+
+						.view-button {
+							display: none;
+						}
 					}
 				}
 			}
@@ -67,6 +82,7 @@
 	#highlighted-episode {
 		float: right;
 		width: 660px;
+		margin-top: 40px;
 
 		.episode-info {
 			display: none;

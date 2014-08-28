@@ -46,7 +46,7 @@ $(function() {
 	$(".episode-view-link").click(viewEpisode);
 
 	// Showing episode details
-	$(".episode").click(showEpisodeDetails);
+	$(".info-button").click(showEpisodeDetails);
 	
 	// Toggle Seasons
 	$(".season-tab").click(toggleSeasons);

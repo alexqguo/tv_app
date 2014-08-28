@@ -27,7 +27,7 @@ class Episode < ActiveRecord::Base
 	has_many :episode_views
 
 	def still_image_url
-		self.still_path.nil? ? nil : "https://image.tmdb.org/t/p/w185" + self.still_path
+		self.still_path.nil? ? "" : "https://image.tmdb.org/t/p/w185" + self.still_path
 	end
 
 	def show

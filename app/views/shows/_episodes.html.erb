@@ -14,12 +14,18 @@
 				<ul class="episodes-list">
 					<% s.sorted_episodes.each do |episode| %>
 						<li class="episode 
-								<%= viewed_by_current_user?(episode) ? "viewed" : "" %>"
-								data-episode-id="<%= episode.id %>">
-							<a data-episode-id="<%= episode.id %>" 
-								class="<%= !!current_user ? "episode-view-link" : "" %>"
-								href="javascript:void(0);">
+								<%= viewed_by_current_user?(episode) ? "viewed" : "" %>">
+							<span class="episode-name">
 								<%= episode.episode_string %> <%= episode.name %>
+							</span>
+							<a data-episode-id="<%= episode.id %>" 
+								class="episode-button view-button <%= !!current_user ? "episode-view-link" : "" %>"
+								href="javascript:void(0);">
+								Watch
+							</a>
+							<a class="info-button episode-button" data-episode-id="<%= episode.id %>"
+								href="javascript:void(0);">
+								Details
 							</a>
 						</li>
 					<% end %>
@@ -29,11 +35,11 @@
 	</ul>
 
 	<ul id="highlighted-episode">
-	<% seasons.each do |s| %>
-		<% s.episodes.each do |episode| %>
-			<%= render "episodes/episode_info", episode: episode %>
+		<% seasons.each do |s| %>
+			<% s.episodes.each do |episode| %>
+				<%= render "episodes/episode_info", episode: episode %>
+			<% end %>
 		<% end %>
-	<% end %>
 	</ul>
 
 </div>
