@@ -25,6 +25,9 @@
 }
 
 .episodes {
+	position: relative;
+	min-height: 300px;
+
 	.season-tabs {
 		.season-tab {
 			&.current-season {
@@ -97,8 +100,4 @@
 			}
 		}
 	}
-
-}
-.need-to-fetch .episodes {
-	display: none;
 }

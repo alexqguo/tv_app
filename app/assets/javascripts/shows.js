@@ -3,13 +3,15 @@ This file contains javascript for shows pages
 */
 
 $(function() {
-	function displayLoadingModal() { //don't really need this right now
+	function displayLoadingModal() {
 		$(".modal, .loading-modal").show();
+		console.log("asdf");
 	}
 
 	function showEpisodes(data) {
 		$("#show-episodes").removeClass("need-to-fetch");
 		$(".episodes").html(data);
+		$(".season-tab-1").click(); // 
 	}
 
 	function handleEpisodeView(evt, data) {
@@ -39,8 +41,6 @@ $(function() {
 		$target.addClass("current-season");
 	}
 
-	// $(".show-link").click(displayLoadingModal);
-
 	// Saving episode view
 	$(".episodes").on("click", ".episode-view-link", viewEpisode);
 
@@ -52,9 +52,8 @@ $(function() {
 	
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
-		alert("Fetching episode data, this may take a minute....");
-		displayLoadingModal();
 		var showId = $("#show").data("id");
+		displayLoadingModal();
 		$.post("/shows/" + showId + "/fetch_episodes", showEpisodes);
 	}
 
