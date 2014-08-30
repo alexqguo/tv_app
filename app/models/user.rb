@@ -38,7 +38,8 @@ class User < ActiveRecord::Base
 			"select episodes.id from episodes
 			join episode_views on episodes.id=episode_views.episode_id
 			join shows on episodes.show_id=shows.id
-			where shows.id=?", show_id
+			where shows.id=?
+			and episode_views.user_id=?", show_id, self.id
 		]
 
 		episodes.map(&:id)
