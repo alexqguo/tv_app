@@ -18,11 +18,13 @@
 							<span class="episode-name">
 								<%= episode.episode_string %> <%= episode.name %>
 							</span>
-							<a data-episode-id="<%= episode.id %>" 
-								class="episode-button view-button <%= !!current_user ? "episode-view-link" : "" %>"
-								href="javascript:void(0);">
-								Watch
-							</a>
+							<% if !!current_user %>
+								<a data-episode-id="<%= episode.id %>" 
+									class="episode-button view-button episode-view-link"
+									href="javascript:void(0);">
+									Watch
+								</a>
+							<% end %>
 							<a class="info-button episode-button" data-episode-id="<%= episode.id %>"
 								href="javascript:void(0);">
 								Details
@@ -41,5 +43,10 @@
 			<% end %>
 		<% end %>
 	</ul>
+
+	<div class="modal hidden"></div>
+	<div class="loading-modal hidden">
+		<div class="loading-text">Loading...</div>
+	</div>
 
 </div>

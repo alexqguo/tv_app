@@ -5,12 +5,18 @@
 	<input type="submit" value="Search">
 </form>
 
-<div class="activities">
+<% if !!current_user %>
+	<div class="activities">
 
-	<h2>Recent Activity</h2>
+		<h2>Recent Activity</h2>
 
-	<% @activities.each do |activity| %>
-		<%= render_activity activity %> <br>
-	<% end %>
-	
-</div>
+		<% if @activities.length == 0 %>
+			Start following some users!
+		<% else %>
+			<% @activities.each do |activity| %>
+				<%= render_activity activity %> <br>
+			<% end %>
+		<% end %>
+		
+	</div>
+<% end %>

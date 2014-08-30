@@ -3,7 +3,7 @@
 	<div class="basic-info clearfix">
 		<img class="show-image" src="<%= @show.full_image_url %>">
 		<h1><%= @show.name %></h1>
-		**more basic info**
+		Release Date: <%= format_date(@show.release_date) %>
 		<p><%= @show.description %></p>
 	</div>
 

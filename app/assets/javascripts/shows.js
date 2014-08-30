@@ -25,12 +25,11 @@ $(function() {
 
 	function showEpisodeDetails(evt) {
 		$(".episode-info").hide();
-		var id = $(evt.currentTarget).data("episode-id");
+		var id = $(evt.target).data("episode-id");
 		$(".episode-" + id).show();
 	}
 
 	function toggleSeasons(evt) {
-		evt.preventDefault();
 		var $target = $(evt.target);
 		var season = $target.data("season-number");
 
@@ -43,17 +42,18 @@ $(function() {
 	// $(".show-link").click(displayLoadingModal);
 
 	// Saving episode view
-	$(".episode-view-link").click(viewEpisode);
+	$(".episodes").on("click", ".episode-view-link", viewEpisode);
 
 	// Showing episode details
-	$(".info-button").click(showEpisodeDetails);
+	$(".episodes").on("click", ".info-button", showEpisodeDetails);
 	
 	// Toggle Seasons
-	$(".season-tab").click(toggleSeasons);
+	$(".episodes").on("click", ".season-tab", toggleSeasons);
 	
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
 		alert("Fetching episode data, this may take a minute....");
+		displayLoadingModal();
 		var showId = $("#show").data("id");
 		$.post("/shows/" + showId + "/fetch_episodes", showEpisodes);
 	}

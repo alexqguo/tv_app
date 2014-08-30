@@ -45,6 +45,8 @@ class ShowsController < ApplicationController
 			else
 				render json: {}, status: 400
 			end
+		else
+			redirect_to root_url
 		end
 	end
 

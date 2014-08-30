@@ -3,7 +3,7 @@ class EpisodesController < ApplicationController
 
 	def view_episode
 		if request.xhr?
-			# search for episode view, if exists, increment
+			#TODO search for episode view, if exists, increment
 			episode_id = params[:episode_id]
 			view = EpisodeView.find_by_user_and_episode(current_user.id, episode_id)
 
@@ -15,6 +15,8 @@ class EpisodesController < ApplicationController
 
 			view.episode.create_activity :create, owner: current_user
 			render json: {view_count: view.view_count}, status: 201
+		else
+			redirect_to root_url
 		end
 	end
 

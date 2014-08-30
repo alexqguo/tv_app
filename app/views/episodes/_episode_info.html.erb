@@ -1,9 +1,9 @@
 <div class="episode-info episode-<%= episode.id %>">
 	<div class="episode-details clearfix">
 	<!-- TODO: lazy loading for these images -->
-		<img class="lazy episode-image" data-src="<%= episode.still_image_url %>" src="">
+		<img class="episode-image" src="<%= episode.still_image_url %>" srasdfc="">
 		<h3><%= episode.name %></h3>
-		Original Air Date: <%= episode.air_date %>
+		Original Air Date: <%= format_date(episode.air_date) %>
 	</div>
 
 	<p><%= episode.description %></p>
