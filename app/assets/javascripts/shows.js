@@ -64,4 +64,12 @@ $(function() {
 		$(".season-tab-" + defaultSeason).addClass("current-season");
 	}
 
+	// Show episode and season by default if params are given
+	var urlSeason = urlParams["season"];
+	var urlEpisode = urlParams["episode"];
+	if (urlSeason && urlEpisode) {
+		$(".season-tab-" + urlSeason).click();
+		$(".season-" + urlSeason + " .ep-num-" + urlEpisode).click();
+	}
+
 });
