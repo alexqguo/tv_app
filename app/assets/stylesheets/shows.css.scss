@@ -11,10 +11,6 @@
 	display: inline-block;
 }
 
-.search-result {
-	
-}
-
 .basic-info {
 	margin-bottom: 20px;
 	
@@ -24,79 +20,91 @@
 	}
 }
 
-.episodes {
-	position: relative;
-	min-height: 300px;
+#show-episodes {
+	h2 {
+		position: relative;
 
-	.season-tabs {
-		.season-tab {
-			&.current-season {
-				font-weight: bold;
-			}
+		.compare-with {
+			right: 0;
+			bottom: 0;
+			position: absolute;
+			font-size: 12px;
 		}
 	}
 
-	#all-seasons {
-		float: left;
-		margin-right: 20px;
+	.episodes {
+		position: relative;
+		min-height: 300px;
 
-		.season-block {
-			display: none;
-			position: relative;
+		.season-tabs {
+			.season-tab {
+				&.current-season {
+					font-weight: bold;
+				}
+			}
+		}
+	}
+}
 
-			.episodes-list {
-				width: 300px;
+#all-seasons {
+	float: left;
+	margin-right: 20px;
 
-				.episode {
+	.season-block {
+		display: none;
+		position: relative;
+
+		.episodes-list {
+			width: 300px;
+
+			.episode {
+				display: block;
+				padding: 5px 10px;
+				margin: 5px 0;
+				border: 1px solid black;
+
+				.episode-name {
 					display: block;
-					padding: 5px 10px;
-					margin: 5px 0;
-					border: 1px solid black;
+				}
 
-					.episode-name {
-						display: block;
-					}
+				.episode-button {
+					text-decoration: none;
+					font-size: 12px;
+					font-weight: 700;
+					color: white;
+					background-color: $blue;
+					padding: 2px 8px;
+					margin-right: 5px;
+					border-radius: 4px;
+				}
 
-					.episode-button {
-						text-decoration: none;
-						font-size: 12px;
-						font-weight: 700;
-						color: white;
-						background-color: $blue;
-						padding: 2px 8px;
-						margin-right: 5px;
-						border-radius: 4px;
-					}
+				&.viewed {
+					font-style: italic;
+					background-color: $green-success;
 
-					&.viewed {
-						font-style: italic;
-						background-color: $green-success;
-
-						.view-button {
-							display: none;
-						}
+					.view-button {
+						display: none;
 					}
 				}
 			}
 		}
 	}
+}
 
-	#highlighted-episode {
-		float: right;
-		width: 675px;
-		margin-top: 40px;
+#highlighted-episode {
+	float: right;
+	width: 675px;
+	margin-top: 40px;
 
-		.episode-info {
-			display: none;
-			padding: 5px 10px;
-			@include debug;
+	.episode-info {
+		display: none;
+		padding: 5px 10px;
+		@include debug;
 
-			.episode-details {
-
-				.episode-image {
-					float: left;
-					margin-right: 10px;
-				}
+		.episode-details {
+			.episode-image {
+				float: left;
+				margin-right: 10px;
 			}
 		}
 	}

@@ -8,7 +8,10 @@
 	</div>
 
 	<div id="show-episodes" class="<%= @show.need_to_fetch? ? 'need-to-fetch' : '' %>">
-		<h2>Episodes</h2>
+		<h2>
+			Episodes
+			<a href="javascript:void(0);" class="compare-with">Compare With...</a>
+		</h2>
 		<div class="divider"></div>
 		<%= render "episodes", seasons: @seasons %>
 	</div>
