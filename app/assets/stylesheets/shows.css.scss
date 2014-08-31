@@ -30,6 +30,23 @@
 			position: absolute;
 			font-size: 12px;
 		}
+
+		.followed-users {
+			display: none;
+			position: absolute;
+			right: 0;
+			bottom: -55px;
+
+			font-size: 12px;
+			padding: 5px 10px;
+			min-width: 80px;
+			border: 1px solid $gray;
+			border-radius: 3px;
+			background-color: $white;
+			z-index: 1;
+
+			@include box-shadow(0, 0, 2px, $gray);
+		}
 	}
 
 	.episodes {

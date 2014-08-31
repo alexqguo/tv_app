@@ -16,3 +16,9 @@ $modal-overlay: 2;
 @mixin debug {
 	border: 1px dashed black;
 }
+
+@mixin box-shadow($top, $left, $blur, $color) {
+	-webkit-box-shadow: $top $left $blur $color;
+  -moz-box-shadow: $top $left $blur $color;
+  box-shadow: $top $left $blur $color;
+}

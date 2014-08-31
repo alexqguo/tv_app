@@ -5,17 +5,15 @@ This file contains javascript for shows pages
 $(function() {
 	function displayLoadingModal() {
 		$(".modal, .loading-modal").show();
-		console.log("asdf");
 	}
 
 	function showEpisodes(data) {
 		$("#show-episodes").removeClass("need-to-fetch");
 		$(".episodes").html(data);
-		$(".season-tab-1").click(); // 
+		$(".season-tab-1").click();
 	}
 
 	function handleEpisodeView(evt, data) {
-		// add css class or do something
 		$(evt.target).parent().addClass("viewed");
 	}
 
@@ -23,6 +21,10 @@ $(function() {
 		evt.preventDefault();
 		var episodeId = $(evt.target).data("episode-id");
 		$.post("/episodes/" + episodeId + "/view_episode", handleEpisodeView.bind(undefined, evt));
+	}
+
+	function showFollowedUsers(evt) {
+		$(".followed-users").fadeToggle("fast");
 	}
 
 	function showEpisodeDetails(evt) {
@@ -49,7 +51,9 @@ $(function() {
 	
 	// Toggle Seasons
 	$(".episodes").on("click", ".season-tab", toggleSeasons);
-	
+
+	$(".compare-with").click(showFollowedUsers);
+
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
 		var showId = $("#show").data("id");
