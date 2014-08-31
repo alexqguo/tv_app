@@ -7,6 +7,11 @@ $(function() {
 		$(".modal, .loading-modal").show();
 	}
 
+	function usernameButton(name, id) {
+		return "<a href='/users/" + id + "' class='episode-button username-button'>" + 
+						name + "</a>";
+	}
+
 	function showEpisodes(data) {
 		$("#show-episodes").removeClass("need-to-fetch");
 		$(".episodes").html(data);
@@ -19,9 +24,9 @@ $(function() {
 
 	function highlightFollowedUserEpisodes(evt, data) {
 		var name = $(evt.target).html();
+		var id = $(evt.target).data("id");
 		for (var i = 0; i < data.length; i++) {
-			$(".episode-" + data[i]).append("<span class='episode-button username-button'>" + 
-				name + "</span>");
+			$(".episode.episode-" + data[i]).append(usernameButton(name, id));
 		};
 	}
 

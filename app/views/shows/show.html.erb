@@ -18,6 +18,7 @@
 						<% current_user.followed_users.each do |user| %>
 							<li>
 								<a href="javascript:void(0);" class="followed-user"
+									data-id="<%= user.id %>"
 									data-url="/users/<%= user.id %>/viewed_ep_ids/<%= @show.id %>">
 									<%= user.username %>
 								</a>
