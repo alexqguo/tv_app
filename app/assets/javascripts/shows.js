@@ -17,6 +17,20 @@ $(function() {
 		$(evt.target).parent().addClass("viewed");
 	}
 
+	function highlightFollowedUserEpisodes(evt, data) {
+		var name = $(evt.target).html();
+		for (var i = 0; i < data.length; i++) {
+			$(".episode-" + data[i]).append("<span class='episode-button username-button'>" + 
+				name + "</span>");
+		};
+	}
+
+	function getFollowedUserViews(evt) {
+		var url = $(evt.target).data("url");
+		$.get(url, highlightFollowedUserEpisodes.bind(undefined, evt));
+		$(".username-button").remove();
+	}
+
 	function viewEpisode(evt) {
 		evt.preventDefault();
 		var episodeId = $(evt.target).data("episode-id");
@@ -52,7 +66,11 @@ $(function() {
 	// Toggle Seasons
 	$(".episodes").on("click", ".season-tab", toggleSeasons);
 
+	// Compare with followed users
 	$(".compare-with").click(showFollowedUsers);
+
+	// Show episode views for followed user
+	$(".followed-user").click(getFollowedUserViews);
 
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {

@@ -60,6 +60,20 @@ class UsersController < ApplicationController
 		end
 	end
 
+	def viewed_ep_ids
+		if request.xhr?
+			@user, @show_id = User.find(params[:user_id]), params[:show_id]
+
+			if @user && @show_id
+				render json: @user.viewed_episode_ids_for_show(@show_id)
+			else
+				render json: {error: "One or more of the requested resources was not found"}, status: 400
+			end
+		else
+			redirect_to root_url
+		end
+	end
+
 	private
 	def user_params
 		params.require(:user).permit(:username, :password)
