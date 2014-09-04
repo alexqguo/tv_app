@@ -72,13 +72,13 @@
 		position: relative;
 
 		.episodes-list {
-			width: 300px;
+			width: 275px;
 
 			.episode {
 				display: block;
 				padding: 5px 10px;
 				margin: 5px 0;
-				border: 1px solid black;
+				background-color: $lighter-gray;
 
 				.episode-name {
 					display: block;
@@ -113,13 +113,13 @@
 
 #highlighted-episode {
 	float: right;
-	width: 675px;
-	margin-top: 40px;
+	width: 650px;
+	margin-top: 36px;
+	background-color: $lighter-gray;
 
 	.episode-info {
 		display: none;
-		padding: 5px 10px;
-		@include debug;
+		padding: 10px;
 
 		.episode-details {
 			.episode-image {
