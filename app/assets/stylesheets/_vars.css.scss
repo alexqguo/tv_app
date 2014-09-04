@@ -4,7 +4,7 @@ $blue: #3f94dc;
 $purple: #963296;
 $green-success: #82FF82;
 $light-gray: #eeeeee;
-$lighter-gray: #e9e9e9;
+$lighter-gray: #efefef;
 $lightest-gray: #f6f6f6;
 $dark-white: #fefefe;
 $darker-gray: #222222;
@@ -22,5 +22,15 @@ $modal-overlay: 2;
 @mixin box-shadow($top, $left, $blur, $color) {
 	-webkit-box-shadow: $top $left $blur $color;
   -moz-box-shadow: $top $left $blur $color;
+  -ms-box-shadow: $top $left $blur $color;
+	-o-box-shadow: $top $left $blur $color;
   box-shadow: $top $left $blur $color;
+}
+
+@mixin transition($transition...) {
+	-webkit-transition: $transition;
+	-moz-transition: $transition;
+	-ms-transition: $transition;
+	-o-transition: $transition;
+	transition: $transition;
 }
