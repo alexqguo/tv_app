@@ -1,8 +1,8 @@
 <h1>All Shows</h1>
 
 <form action="<%= search_shows_url %>" method="GET">
-	<input type="text" placeholder="Find a show..." name="q">
-	<input type="submit" value="Search">
+	<input class="search-input" type="text" placeholder="Find a show..." name="q">
+	<input class="search-submit" type="submit" value="Search">
 </form>
 
 <% if !!current_user %>
