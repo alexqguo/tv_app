@@ -83,7 +83,38 @@ a {
 	}
 }
 
-.search-input {
+form {
+	width: 300px;
+
+	.input {
+		margin-bottom: 15px;;
+
+		input {
+			float: right;
+		}
+	}
+
+	input[type="submit"] {
+		background-color: $white;
+		border: 1px solid $dark-gray;
+		margin-left: 5px;
+		padding: 3px 5px;
+		outline: none;
+		@include transition(0.2s);
+
+		&:active {
+			background-color: $lighter-gray;
+		}
+
+		&:hover, &:focus {
+			cursor: pointer;
+			border: 1px solid $darker-gray;
+			@include box-shadow(0, 0, 4px, $gray);
+		}
+	}
+}
+
+.search-input, .input input {
 	border: 1px solid $dark-gray;
 	padding: 3px 5px;
 	width: 200px;
@@ -94,25 +125,6 @@ a {
 	&:hover, &:focus {
 		border: 1px solid $blue;
 		@include box-shadow(0, 0, 2px, $blue);
-	}
-}
-
-.search-submit {
-	background-color: $white;
-	border: 1px solid $dark-gray;
-	margin-left: 5px;
-	padding: 3px 5px;
-	outline: none;
-	@include transition(0.2s);
-
-	&:active {
-		background-color: $lighter-gray;
-	}
-
-	&:hover, &:focus {
-		cursor: pointer;
-		border: 1px solid $darker-gray;
-		@include box-shadow(0, 0, 4px, $gray);
 	}
 }
 
@@ -127,6 +139,7 @@ a {
 
 #header-wrap {
 	width: 100%;
+	min-width: 950px;
 	background-color: $white;
 	border-bottom: 1px solid $gray;
 
@@ -134,20 +147,34 @@ a {
 		height: 50px;
 
 		.home-link {
+			width: 50px;
+			text-align: center;
 			float: left;
+			display: block;
+			padding: 13px 5px 17px;
+			text-decoration: none;
+
+			&:hover {
+				background-color: $light-gray;
+			}
 		}
 
 		.navlist {
 			float: right;
+			height: 100%;
 
 			.navlist-item {
-				@include debug;
-				margin: 0 10px;
-				height: 50px;
+				height: 100%;
 				float: left;
 
+				a {
+					display: block;
+					padding: 13px 5px 17px;
+					text-decoration: none;
+				}
+
 				&:hover {
-					cursor: pointer;
+					background-color: $light-gray;
 				}
 			}
 		}
