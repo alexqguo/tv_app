@@ -93,7 +93,8 @@
 				display: block;
 				padding: 5px 10px;
 				margin: 5px 0;
-				background-color: $light-gray;
+				border: 1px solid $gray;
+				@include transition(0.2s);
 
 				.episode-name {
 					display: block;
@@ -121,6 +122,10 @@
 						display: none;
 					}
 				}
+
+				&:hover {
+					@include box-shadow(0, 0, 5px, $gray);
+				}
 			}
 		}
 	}
@@ -130,11 +135,12 @@
 	float: right;
 	width: 650px;
 	margin-top: 36px;
-	background-color: $light-gray;
 
 	.episode-info {
 		display: none;
 		padding: 10px;
+		border: 1px solid $gray;
+		@include box-shadow(0, 0, 4px, $gray);
 
 		.episode-details {
 			.episode-image {
