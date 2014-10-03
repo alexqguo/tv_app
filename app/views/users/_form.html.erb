@@ -1,5 +1,5 @@
 <h1><%= message %></h1>
-<form action="<%= action %>" method="<%= method %>">
+<form class="std-form" action="<%= action %>" method="<%= method %>">
 	<%= auth_token %>
 	
 	<div class="input">
@@ -9,7 +9,7 @@
 
 	<div class="input">
 		<label for="password">Password: </label>
-		<input name="user[password]" id="password">
+		<input type="password" name="user[password]" id="password">
 	</div>
 
 	<input type="submit" message="<%= message %>">

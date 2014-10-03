@@ -83,7 +83,7 @@ a {
 	}
 }
 
-form {
+form.std-form {
 	width: 300px;
 
 	.input {
@@ -111,6 +111,17 @@ form {
 			border: 1px solid $darker-gray;
 			@include box-shadow(0, 0, 4px, $gray);
 		}
+	}
+}
+
+#signout input[type="submit"] {
+	color: $blue;
+	outline: none;
+	padding: 13px 5px 17px;
+	background-color: transparent;
+
+	&:hover {
+		cursor: pointer;
 	}
 }
 
@@ -166,6 +177,8 @@ form {
 			.navlist-item {
 				height: 100%;
 				float: left;
+				min-width: 55px;
+				text-align: center;
 
 				a {
 					display: block;
