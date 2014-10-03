@@ -11,7 +11,7 @@
 		<h2>Recent Activity</h2>
 
 		<% if @activities.length == 0 %>
-			Start following some users!
+			<a href="<%= users_url %>" >Start following some users!</a>
 		<% else %>
 			<% @activities.each do |activity| %>
 				<%= render_activity activity %> <br>

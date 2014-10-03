@@ -10,21 +10,22 @@
 	<div id="show-episodes" class="<%= @show.need_to_fetch? ? 'need-to-fetch' : '' %>">
 		<h2>
 			Episodes
-			<% if !!current_user %>
+			<% if !!current_user && @followed_users.length > 0 %>
 				<a href="javascript:void(0);" class="compare-with">
 					Compare With...
 
-					<ul class="followed-users">
-						<% current_user.followed_users.each do |user| %>
-							<li>
-								<a href="javascript:void(0);" class="followed-user"
-									data-id="<%= user.id %>"
-									data-url="/users/<%= user.id %>/viewed_ep_ids/<%= @show.id %>">
-									<%= user.username %>
-								</a>
-							</li>
-						<% end %>
-					</ul>
+						<ul class="followed-users">
+
+							<% @followed_users.each do |user| %>
+								<li>
+									<a href="javascript:void(0);" class="followed-user"
+										data-id="<%= user.id %>"
+										data-url="/users/<%= user.id %>/viewed_ep_ids/<%= @show.id %>">
+										<%= user.username %>
+									</a>
+								</li>
+								<% end %>
+						</ul>
 				</a>
 			<% end %>
 		</h2>

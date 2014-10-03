@@ -8,6 +8,7 @@ Rails.application.routes.draw do
 
   resources :episodes, only: [] do
   	post :view_episode
+    post :view_season
   end
 
   resources :shows, only: [:index, :show] do

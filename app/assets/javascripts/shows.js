@@ -62,6 +62,10 @@ $(function() {
 		$target.addClass("current-season");
 	}
 
+	function displaySeasonActionMenu(evt) {
+		console.log("I'm a function");
+	}
+
 	// Saving episode view
 	$(".episodes").on("click", ".episode-view-link", viewEpisode);
 
@@ -70,6 +74,9 @@ $(function() {
 	
 	// Toggle Seasons
 	$(".episodes").on("click", ".season-tab", toggleSeasons);
+
+	// Season action menu
+	$(".season-title").on("mouseover", displaySeasonActionMenu);
 
 	// Compare with followed users
 	$(".compare-with").click(showFollowedUsers);

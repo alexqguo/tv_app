@@ -1,5 +1,6 @@
-<h1>All users</h1>
+<h2>Start Following Users</h2>
 
+<!-- Change this eventually, implement search, etc. -->
 <ul>
 	<% @users.each do |user| %>
 		<li><a href="<%= user_url(user) %>"><%= user.username %></a></li>

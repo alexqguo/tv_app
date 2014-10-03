@@ -1,5 +1,5 @@
 class EpisodesController < ApplicationController
-	before_filter :require_current_user!, only: :view_episode
+	before_filter :require_current_user!, only: [:view_episode, :view_season]
 
 	def view_episode
 		if request.xhr?
@@ -15,6 +15,14 @@ class EpisodesController < ApplicationController
 
 			view.episode.create_activity :create, owner: current_user
 			render json: {view_count: view.view_count}, status: 201
+		else
+			redirect_to root_url
+		end
+	end
+
+	def view_season
+		if request.xhr?
+			render json: "not implemented yet", status: 500
 		else
 			redirect_to root_url
 		end

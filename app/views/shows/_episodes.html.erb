@@ -9,7 +9,15 @@
 	<ul id="all-seasons" data-default-season="<%= @default_season %>">
 		<% seasons.each do |s| %>
 			<li class="season-block season-<%= s.season_number %>">
-				<h3>Season <%= s.season_number %></h3>
+				<h3 class="season-title">
+					Season <%= s.season_number %>
+					<ul class="season-actions" data-season="<%= s.season_number %>">
+						<li>
+							<a class="action-button" href="javascript:void(0);">Watch all</a>
+						</li>
+					</ul>
+				</h3>
+
 				<ul class="episodes-list">
 					<% s.sorted_episodes.each do |episode| %>
 						<li class="episode episode-<%= episode.id %>

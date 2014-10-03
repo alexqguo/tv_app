@@ -40,9 +40,6 @@ class UsersController < ApplicationController
 		fail
 	end
 
-	def find
-	end
-
 	def toggle_follow
 		if request.xhr?
 			@user = User.find(params[:user_id])
