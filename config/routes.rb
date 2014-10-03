@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   
   resources :users, except: :destroy do
+    get :find, on: :collection
     post :toggle_follow
     get 'viewed_ep_ids/:show_id', action: :viewed_ep_ids, as: :viewed_ep_ids
   end
