@@ -30,8 +30,10 @@ Notes
 
 - Todo
 	- friendly_id
-	- set up figaro
+	- set up figaro?
 	- add custom validations for poster_path
 	- actually implement UserShow
 	- Shows Controller
 		- do actual calculation for default_season
+	- implement way to find other users
+	- implement notifications? (eh, there's activity feed for this we can use public activity)
