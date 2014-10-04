@@ -62,10 +62,15 @@ $(function() {
 		$target.addClass("current-season");
 	}
 
-	function displaySeasonActionMenu(evt) {
-		console.log("I'm a function");
-		// $(".season-actions").animate({display: "block"}, "fast");
-		// $(".season-actions").fadeToggle().css("left", "60px");
+	function handleWatchAll(evt, data) {
+		console.log(data);
+	}
+
+	function watchAll(evt) {
+		var showId = $("#show").data("id");
+		var season = $(evt.target).parents(".season-actions").data("season");
+		var url = "/shows/" + showId + "/view_season/" + season;
+		$.post(url, handleWatchAll.bind(undefined, evt));
 	}
 
 	// Saving episode view
@@ -77,8 +82,8 @@ $(function() {
 	// Toggle Seasons
 	$(".episodes").on("click", ".season-tab", toggleSeasons);
 
-	// Season action menu
-	$(".season-title").on("mouseover", displaySeasonActionMenu);
+	// Watch all episodes for season
+	$(".episodes").on("click", ".action-button.watch-all", watchAll);
 
 	// Compare with followed users
 	$(".compare-with").click(showFollowedUsers);

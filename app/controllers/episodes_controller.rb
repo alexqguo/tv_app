@@ -20,12 +20,4 @@ class EpisodesController < ApplicationController
 		end
 	end
 
-	def view_season
-		if request.xhr?
-			render json: "not implemented yet", status: 500
-		else
-			redirect_to root_url
-		end
-	end
-
 end

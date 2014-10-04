@@ -66,7 +66,14 @@ class Show < ActiveRecord::Base
 
 	end
 
-	# maybe make this something better?
+	def season_number(num)
+		self.seasons.where(season_number: num).first
+	end
+
+	def eps_for_season_num(num)
+		season_number(num).episodes
+	end
+
 	def need_to_fetch?
 		self.seasons.count == 0
 	end

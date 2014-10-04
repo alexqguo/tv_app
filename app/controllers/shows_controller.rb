@@ -50,6 +50,17 @@ class ShowsController < ApplicationController
 		end
 	end
 
+	def view_season
+		if request.xhr?
+			show_id = params[:show_id]
+			season_num = params[:season_num]
+			
+			render json: {show_id: show_id, season_num: season_num}
+		else
+			redirect_to root_url
+		end
+	end
+
 	private
 
 	def prepare_basic_info
