@@ -87,13 +87,14 @@
 		position: relative;
 
 		.season-title {
-			display: inline-block;
 			position: relative;
 
+			/* This will need tweaking once more items get added to .season-actions */
 			.season-actions {
 				position: absolute;
-				display: none;
+				opacity: 0;
 				bottom: 0;
+				@include transition(0.2s);
 			}
 
 			.action-button {
@@ -105,6 +106,11 @@
 				padding: 1px 5px;
 				margin-right: 5px;
 				border-radius: 2px;
+			}
+
+			&:hover .season-actions {
+				margin-left: 100px;
+				opacity: 1;
 			}
 
 		}

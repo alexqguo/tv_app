@@ -64,6 +64,8 @@ $(function() {
 
 	function displaySeasonActionMenu(evt) {
 		console.log("I'm a function");
+		// $(".season-actions").animate({display: "block"}, "fast");
+		// $(".season-actions").fadeToggle().css("left", "60px");
 	}
 
 	// Saving episode view
