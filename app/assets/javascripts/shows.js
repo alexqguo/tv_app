@@ -64,6 +64,8 @@ $(function() {
 
 	function handleWatchAll(evt, data) {
 		console.log(data);
+		var season = ".season-" + data["season"];
+		$(season + " .episode").addClass("viewed");
 	}
 
 	function watchAll(evt) {

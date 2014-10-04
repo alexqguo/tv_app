@@ -9,14 +9,16 @@
 	<ul id="all-seasons" data-default-season="<%= @default_season %>">
 		<% seasons.each do |s| %>
 			<li class="season-block season-<%= s.season_number %>">
-				<h3 class="season-title">
-					Season <%= s.season_number %>
-					<ul class="season-actions" data-season="<%= s.season_number %>">
-						<li>
-							<a class="action-button watch-all" href="javascript:void(0);">Watch all</a>
-						</li>
-					</ul>
-				</h3>
+				<% if !!current_user %>
+					<h3 class="season-title">
+						Season <%= s.season_number %>
+						<ul class="season-actions" data-season="<%= s.season_number %>">
+							<li>
+								<a class="action-button watch-all" href="javascript:void(0);">Watch all</a>
+							</li>
+						</ul>
+					</h3>
+				<% end %>
 
 				<ul class="episodes-list">
 					<% s.sorted_episodes.each do |episode| %>

@@ -42,6 +42,40 @@ class Show < ActiveRecord::Base
 		"https://image.tmdb.org/t/p/w185" + self.poster_image_path
 	end
 
+	def season_number(num)
+		self.seasons.where(season_number: num).first
+	end
+
+	# Don't really need this or the one above but it makes the
+	# method below prettier and they're nice-to-haves
+	def episodes_for_season(num)
+		season_number(num).episodes
+	end
+
+	def view_all_episodes_for_season(user, num)
+		resp = {season: num}
+		eps = episodes_for_season(num)
+
+		eps.each do |episode|
+			view = EpisodeView.find_by_user_and_episode(user.id, episode.id)
+
+			if view
+				view.add_view!
+			else
+				view = user.episode_views.create(episode_id: episode.id)
+			end
+			view.episode.create_activity :create, owner: user
+			resp["episode-#{episode.id}_viewcount"] = view.view_count
+
+		end
+
+		resp
+	end
+
+	def need_to_fetch?
+		self.seasons.count == 0
+	end
+
 	def api_detail_call
 		Tmdb::TV.detail(self.tmdb_id)
 	end
@@ -63,19 +97,6 @@ class Show < ActiveRecord::Base
 
 			season_idx += 1
 		end
-
-	end
-
-	def season_number(num)
-		self.seasons.where(season_number: num).first
-	end
-
-	def eps_for_season_num(num)
-		season_number(num).episodes
-	end
-
-	def need_to_fetch?
-		self.seasons.count == 0
 	end
 
 	private

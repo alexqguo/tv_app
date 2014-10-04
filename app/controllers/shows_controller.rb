@@ -43,7 +43,7 @@ class ShowsController < ApplicationController
 				prepare_basic_info
 				render partial: "episodes", locals: { seasons: @show.sorted_seasons }
 			else
-				render json: {}, status: 400
+				render json: {error: "Show not found"}, status: 404
 			end
 		else
 			redirect_to root_url
@@ -52,10 +52,19 @@ class ShowsController < ApplicationController
 
 	def view_season
 		if request.xhr?
-			show_id = params[:show_id]
-			season_num = params[:season_num]
-			
-			render json: {show_id: show_id, season_num: season_num}
+			begin
+				season_num = params[:season_num]
+				@show = Show.find(params[:show_id])
+
+				if @show
+					resp = @show.view_all_episodes_for_season(current_user, season_num)
+					render json: resp
+				else
+					render json: {error: "Show not found"}, status: 404
+				end
+			rescue
+				render json: {error: "This didn't work!"}, status: 422
+			end
 		else
 			redirect_to root_url
 		end
