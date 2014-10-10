@@ -125,11 +125,12 @@
 				border: 1px solid $gray;
 				@include transition(0.2s);
 
-				.episode-name {
-					display: block;
+				.episode-buttons {
+					float: right;
 				}
 
 				.episode-button {
+					float: right;
 					text-decoration: none;
 					font-size: 12px;
 					font-weight: 400;

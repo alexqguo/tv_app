@@ -23,22 +23,24 @@
 				<ul class="episodes-list">
 					<% s.sorted_episodes.each do |episode| %>
 						<li class="episode episode-<%= episode.id %>
-								<%= viewed_by_current_user?(episode) ? "viewed" : "" %>">
+								<%= viewed_by_current_user?(episode) ? "viewed" : "" %> clearfix">
 							<span class="episode-name">
 								<%= episode.episode_string %> <%= episode.name %>
 							</span>
-							<% if !!current_user %>
-								<a data-episode-id="<%= episode.id %>" 
-									class="episode-button view-button episode-view-link"
+							<ul class="episode-buttons">
+								<a class="info-button episode-button ep-num-<%= episode.episode_number %>" 
+									data-episode-id="<%= episode.id %>"
 									href="javascript:void(0);">
-									Watch
+									Details
 								</a>
-							<% end %>
-							<a class="info-button episode-button ep-num-<%= episode.episode_number %>" 
-								data-episode-id="<%= episode.id %>"
-								href="javascript:void(0);">
-								Details
-							</a>
+								<% if !!current_user %>
+									<a data-episode-id="<%= episode.id %>" 
+										class="episode-button view-button episode-view-link"
+										href="javascript:void(0);">
+										Watch
+									</a>
+								<% end %>
+							</ul>
 						</li>
 					<% end %>
 				</ul>
