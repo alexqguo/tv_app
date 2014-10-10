@@ -26,7 +26,7 @@ $(function() {
 	}
 
 	function handleEpisodeView(evt, data) {
-		$(evt.target).parent().addClass("viewed");
+		$(evt.target).parents(".episode").addClass("viewed");
 	}
 
 	function highlightFollowedUserEpisodes(evt, data) {
