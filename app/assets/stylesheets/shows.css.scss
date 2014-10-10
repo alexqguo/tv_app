@@ -182,4 +182,11 @@
 			margin-bottom: 0;
 		}
 	}
+
+	&.sticky {
+		float: right;
+		position: fixed;
+		top: 0;
+		margin-left: 300px;
+	}
 }

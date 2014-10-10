@@ -3,6 +3,13 @@ This file contains javascript for shows pages
 */
 
 $(function() {
+
+	// This is for moveEpisodeInfo
+	// Define it up here for performance in the scroll event handler
+	var $window = $(window),
+			$epInfo = $("#highlighted-episode"),
+			epInfoTop = $epInfo.offset().top;
+
 	function displayLoadingModal() {
 		$(".modal, .loading-modal").show();
 	}
@@ -63,9 +70,12 @@ $(function() {
 	}
 
 	function handleWatchAll(evt, data) {
-		console.log(data);
 		var season = ".season-" + data["season"];
 		$(season + " .episode").addClass("viewed");
+	}
+
+	function moveEpisodeInfo(evt) {
+		$epInfo.toggleClass("sticky", $window.scrollTop() > (epInfoTop - 36));
 	}
 
 	function watchAll(evt) {
@@ -92,6 +102,10 @@ $(function() {
 
 	// Show episode views for followed user
 	$(".followed-user").click(getFollowedUserViews);
+
+	// Move Episode Info
+	// TODO: I don't like having a scroll event but oh well
+	$window.scroll(moveEpisodeInfo);
 
 	// Ajax for saving episodes
 	if ($("#show-episodes").hasClass("need-to-fetch")) {
