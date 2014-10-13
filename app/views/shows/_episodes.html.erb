@@ -23,7 +23,7 @@
 				<ul class="episodes-list">
 					<% s.sorted_episodes.each do |episode| %>
 						<% viewed = viewed_by_current_user?(episode) %>
-						<li class="episode episode-<%= episode.id %>
+						<li class="episode episode-<%= episode.id %> ep-num-<%= episode.episode_number %>
 								<%= viewed ? "viewed" : "" %> clearfix"
 								data-episode-id="<%= episode.id %>">
 							<span class="episode-name">

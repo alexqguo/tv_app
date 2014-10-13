@@ -3,7 +3,6 @@ This file contains javascript for shows pages
 */
 
 $(function() {
-
 	// This is for moveEpisodeInfo
 	// Define it up here for performance in the scroll event handler
 	var $window = $(window),

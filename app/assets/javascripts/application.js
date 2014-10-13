@@ -13,7 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require core.js
 //
 // Vendor Files
 //= require jquery.lazy.min
