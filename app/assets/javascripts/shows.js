@@ -27,6 +27,7 @@ $(function() {
 
 	function handleEpisodeView(evt, data) {
 		$(evt.target).parents(".episode").addClass("viewed");
+		$(evt.target).html("Rewatch");
 	}
 
 	function highlightFollowedUserEpisodes(evt, data) {
@@ -89,7 +90,7 @@ $(function() {
 	$(".episodes").on("click", ".episode-view-link", viewEpisode);
 
 	// Showing episode details
-	$(".episodes").on("click", ".info-button", showEpisodeDetails);
+	$(".episodes").on("click", ".episode", showEpisodeDetails);
 	
 	// Toggle Seasons
 	$(".episodes").on("click", ".season-tab", toggleSeasons);

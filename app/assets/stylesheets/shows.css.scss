@@ -150,11 +150,14 @@
 					background-color: $green-success;
 
 					.view-button {
-						display: none;
+						background-color: $light-purple;
+						font-size: 11px;
+						padding: 1px 4px;
 					}
 				}
 
 				&:hover {
+					cursor: pointer;
 					@include box-shadow(0, 0, 5px, $gray);
 				}
 			}
