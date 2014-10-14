@@ -35,7 +35,7 @@
 			display: none;
 			position: absolute;
 			right: 0;
-			bottom: -55px;
+			top: 55px;
 
 			font-size: 12px;
 			padding: 5px 10px;
@@ -46,6 +46,12 @@
 			z-index: 1;
 
 			@include box-shadow(0, 0, 2px, $gray);
+
+			.followed-user.clear {
+				margin-top: 5px;
+				color: $black;
+				text-decoration: none;
+			}
 		}
 	}
 
@@ -76,6 +82,18 @@
 			}
 		}
 	}
+}
+
+.episode-button {
+	float: right;
+	text-decoration: none;
+	font-size: 12px;
+	font-weight: 400;
+	color: white;
+	background-color: $blue;
+	padding: 2px 5px;
+	margin-right: 5px;
+	border-radius: 2px;
 }
 
 #all-seasons {
@@ -130,18 +148,6 @@
 					margin-top: 2px;
 				}
 
-				.episode-button {
-					float: right;
-					text-decoration: none;
-					font-size: 12px;
-					font-weight: 400;
-					color: white;
-					background-color: $blue;
-					padding: 2px 5px;
-					margin-right: 5px;
-					border-radius: 2px;
-				}
-
 				.username-button {
 					background-color: $purple;
 				}
@@ -150,9 +156,10 @@
 					background-color: $green-success;
 
 					.view-button {
-						background-color: $light-purple;
-						font-size: 11px;
-						padding: 1px 4px;
+						display: none;
+						// background-color: $light-purple;
+						// font-size: 11px;
+						// padding: 1px 4px;
 					}
 				}
 
@@ -181,6 +188,12 @@
 				float: left;
 				margin-right: 10px;
 			}
+		}
+
+		.episode-button {
+			float: left;
+			margin-top: 5px;
+			background-color: $purple;
 		}
 
 		p {

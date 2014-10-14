@@ -14,7 +14,7 @@ class EpisodesController < ApplicationController
 			end
 
 			view.episode.create_activity :create, owner: current_user
-			render json: {view_count: view.view_count}, status: 201
+			render json: {episode_id: view.episode.id, view_count: view.view_count}, status: 201
 		else
 			redirect_to root_url
 		end

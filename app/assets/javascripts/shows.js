@@ -26,15 +26,22 @@ $(function() {
 
 	function handleEpisodeView(evt, data) {
 		$(evt.target).parents(".episode").addClass("viewed");
-		$(evt.target).html("Rewatch");
+		$(".episode-info.episode-" + data.episode_id + " .view-button").show();
 	}
 
 	function highlightFollowedUserEpisodes(evt, data) {
-		var name = $(evt.target).html();
-		var id = $(evt.target).data("id");
-		for (var i = 0; i < data.length; i++) {
-			$(".episode.episode-" + data[i]).append(usernameButton(name, id));
-		};
+		var $target = $(evt.target);
+
+		if ($target.hasClass("clear")) {
+			$(".username-button").remove();
+			showFollowedUsers(evt);
+		} else {
+			var name = $target.html();
+			var id = $target.data("id");
+			for (var i = 0; i < data.length; i++) {
+				$(".episode.episode-" + data[i]).append(usernameButton(name, id));
+			};
+		}
 	}
 
 	function getFollowedUserViews(evt) {

@@ -29,18 +29,25 @@ Notes
 		- belongs_to: user, episode
 
 - Todo
-	- friendly_id
-	- add custom validations for poster_path
-	- actually implement UserShow
-	- Shows Controller
-		- do actual calculation for default_season
-	- implement notifications
-		- just highlight something on the home page if it hasn't been seen yet
-	- add details to users
-		- first/last name (string)
-		- location (use geocoder)
-		- interests (this could be tags)
-		- short description (string)
-		- profile picture (use paperclip)
-		- private_profile (bool)
-		- add followed/following count to home page
+	- HIGH PRIORITY: 
+		- friendly_id
+
+	- LOW HANGING: 
+		- add custom validations for poster_path
+
+	- MEDIUM: 
+		- implement notifications
+			- just highlight something on the home page if it hasn't been seen yet
+		- add details to users
+			- first/last name (string)
+			- location (use geocoder)
+			- interests (this could be tags)
+			- short description (string)
+			- profile picture (use paperclip)
+			- private_profile (bool)
+			- add followed/following count to home page
+
+	- MISC:
+		- actually implement UserShow
+		- Shows Controller
+			- do actual calculation for default_season

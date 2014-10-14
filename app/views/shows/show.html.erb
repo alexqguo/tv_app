@@ -15,16 +15,24 @@
 					Compare With...
 
 						<ul class="followed-users">
+							<% if @followed_users.length > 0 %>
+								<% @followed_users.each do |user| %>
+									<li>
+										<a href="javascript:void(0);" class="followed-user"
+											data-id="<%= user.id %>"
+											data-url="/users/<%= user.id %>/viewed_ep_ids/<%= @show.id %>">
+											<%= user.username %>
+										</a>
+									</li>
+									<% end %>
+									<li>
+										<a href="javascript:void(0);" class="followed-user clear">
+											Clear
+										</a>
+									</li>
+							<% else %>
 
-							<% @followed_users.each do |user| %>
-								<li>
-									<a href="javascript:void(0);" class="followed-user"
-										data-id="<%= user.id %>"
-										data-url="/users/<%= user.id %>/viewed_ep_ids/<%= @show.id %>">
-										<%= user.username %>
-									</a>
-								</li>
-								<% end %>
+							<% end %>
 						</ul>
 				</a>
 			<% end %>
