@@ -62,7 +62,7 @@ $(function() {
 
 	function showEpisodeDetails(evt) {
 		$(".episode-info").hide();
-		var id = $(evt.target).data("episode-id");
+		var id = $(evt.currentTarget).data("episode-id");
 		$(".episode-" + id).show();
 	}
 
