@@ -1,5 +1,37 @@
-Notes
+--------------------------------------------------------------------------------
+Todo
+--------------------------------------------------------------------------------
+- HIGH PRIORITY: 
+	- friendly_id
+	- visual confirmation for rewatch
+	- search result page
 
+- LOW HANGING: 
+	- add custom validations for poster_path
+
+- MEDIUM: 
+	- UI for shows with no picture
+	- make sure asset stuff is working properly
+	- implement notifications
+		- just highlight something on the home page if it hasn't been seen yet
+	- add details to users
+		- first/last name (string)
+		- location (use geocoder)
+		- interests (this could be tags)
+		- short description (string)
+		- profile picture (use paperclip)
+		- private_profile (bool)
+		- add followed/following count to home page
+
+- MISC:
+	- actually implement UserShow
+	- Shows Controller
+		- do actual calculation for default_season
+		
+
+--------------------------------------------------------------------------------
+Notes
+--------------------------------------------------------------------------------
 - Models
 	- user
 		- username, profile_private (bool)
@@ -27,31 +59,3 @@ Notes
 	- episode_view
 		- user_id, episode_id, in_progress (bool)
 		- belongs_to: user, episode
-
-- Todo
-	- HIGH PRIORITY: 
-		- friendly_id
-		- visual confirmation for rewatch
-		- search result page
-
-	- LOW HANGING: 
-		- add custom validations for poster_path
-
-	- MEDIUM: 
-		- UI for shows with no picture
-		- make sure asset stuff is working properly
-		- implement notifications
-			- just highlight something on the home page if it hasn't been seen yet
-		- add details to users
-			- first/last name (string)
-			- location (use geocoder)
-			- interests (this could be tags)
-			- short description (string)
-			- profile picture (use paperclip)
-			- private_profile (bool)
-			- add followed/following count to home page
-
-	- MISC:
-		- actually implement UserShow
-		- Shows Controller
-			- do actual calculation for default_season
