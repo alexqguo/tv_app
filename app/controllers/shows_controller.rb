@@ -10,7 +10,8 @@ class ShowsController < ApplicationController
 	end
 
 	def show
-		@show = Show.find_by_id(params[:id])
+		fail
+		@show = Show.find(params[:id])
 
 		if @show
 			@seasons = @show.sorted_seasons

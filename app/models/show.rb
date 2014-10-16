@@ -15,6 +15,8 @@
 #
 
 class Show < ActiveRecord::Base
+	extend FriendlyId
+	friendly_id :name, use: [:slugged, :finders]
 
 	validates :name, :tmdb_id, presence: true, uniqueness: true
 
