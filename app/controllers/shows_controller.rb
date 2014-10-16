@@ -10,7 +10,6 @@ class ShowsController < ApplicationController
 	end
 
 	def show
-		fail
 		@show = Show.find(params[:id])
 
 		if @show

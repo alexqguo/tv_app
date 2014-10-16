@@ -2,7 +2,6 @@
 Todo
 --------------------------------------------------------------------------------
 - HIGH PRIORITY: 
-	- friendly_id
 	- visual confirmation for rewatch
 	- search result page
 
