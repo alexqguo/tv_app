@@ -33,16 +33,22 @@ class User < ActiveRecord::Base
 		BCrypt::Password.new(self.password_digest).is_password?(pass)
 	end
 
-	def viewed_episode_ids_for_show(show_id)
-		episodes = Episode.find_by_sql [
-			"select episodes.id from episodes
+	def viewed_episode_info_for_show(show_id)
+		h = {}
+		episodes = EpisodeView.find_by_sql [
+			"select episodes.id, episode_views.view_count from episodes
 			join episode_views on episodes.id=episode_views.episode_id
 			join shows on episodes.show_id=shows.id
 			where shows.id=?
 			and episode_views.user_id=?", show_id, self.id
 		]
 
-		episodes.map(&:id)
+		episodes.each { |e| h[e.id] = e.view_count }
+		h
+	end
+
+	def viewed_episode_ids_for_show(show_id)
+		viewed_episode_info_for_show(show_id).keys
 	end
 
 	def is_following?(user)

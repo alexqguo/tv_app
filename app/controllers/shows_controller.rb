@@ -75,7 +75,8 @@ class ShowsController < ApplicationController
 	def prepare_basic_info
 		@seasons_count = @show.seasons.count
 		@default_season = 1
-		@views = !!current_user ? current_user.viewed_episode_ids_for_show(@show.id) : []
+		@view_info = !!current_user ? current_user.viewed_episode_info_for_show(@show.id) : []
+		@views = (@view_info == []) ? [] : @view_info.keys
 		@followed_users = !!current_user ? current_user.followed_users : []
 	end
 

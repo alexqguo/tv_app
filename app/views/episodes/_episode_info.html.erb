@@ -11,7 +11,7 @@
 				<% viewed = viewed_by_current_user?(episode) ? "" : "hidden" %>
 
 					<span class="watched-this <%= viewed %>">
-						You've watched this episode <span class="view-count"><%= 4 %></span> time(s)
+						You've watched this episode <span class="view-count"><%= @view_info[episode.id] %></span> time(s)
 					</span>
 					<a data-episode-id="<%= episode.id %>" 
 						class="episode-button view-button episode-view-link <%= viewed %>"
