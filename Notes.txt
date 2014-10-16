@@ -3,6 +3,7 @@ Todo
 --------------------------------------------------------------------------------
 - HIGH PRIORITY: 
 	- generate friendly id before save
+	- fetch new episodes!
 
 - LOW HANGING: 
 	- add custom validations for poster_path
