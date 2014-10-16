@@ -5,7 +5,7 @@
 		<% @results.each do |result| %>
 			<li class="search-result">
 				<% if result.poster_path || result.backdrop_path %>
-					<a href="<%= find_shows_url(result.id) %>">
+					<a data-no-turbolink href="<%= find_shows_url(result.id) %>">
 						<img src="<%= full_image_url(result) %>">
 					</a>
 				<% else %>
