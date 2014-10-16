@@ -26,7 +26,8 @@ $(function() {
 
 	function handleEpisodeView(evt, data) {
 		$(evt.target).parents(".episode").addClass("viewed");
-		$(".episode-info.episode-" + data.episode_id + " .view-button").show();
+		$(".episode-info.episode-" + data.episode_id + " .view-button, .episode-info.episode-" + data.episode_id + " .watched-this").show();
+		$(".episode-info.episode-" + data.episode_id + " .view-count").html(data.view_count);
 	}
 
 	function highlightFollowedUserEpisodes(evt, data) {
@@ -86,10 +87,14 @@ $(function() {
 	}
 
 	function watchAll(evt) {
-		var showId = $("#show").data("id");
-		var season = $(evt.target).parents(".season-actions").data("season");
-		var url = "/shows/" + showId + "/view_season/" + season;
-		$.post(url, handleWatchAll.bind(undefined, evt));
+		if (confirm("Are you sure you want to mark all these episodes as watched?")) {
+			var showId = $("#show").data("id");
+			var season = $(evt.target).parents(".season-actions").data("season");
+			var url = "/shows/" + showId + "/view_season/" + season;
+			$.post(url, handleWatchAll.bind(undefined, evt));
+		} else {
+			// Nothing
+		}
 	}
 
 	// Saving episode view
