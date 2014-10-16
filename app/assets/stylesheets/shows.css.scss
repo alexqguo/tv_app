@@ -214,3 +214,29 @@
 		margin-left: 300px;
 	}
 }
+
+.search-result {
+	position: relative;
+	padding: 15px 5px;
+	margin: 10px;
+	float: left;
+	text-align: center;
+	@include box-shadow(0, 0, 3px, $gray);
+
+	&:hover img {
+		display: block;
+	}
+
+	img {
+		padding: 10px;
+		border: 1px solid $black;
+		background-color: $white;
+		display: none;
+		position: absolute;
+		top: 40px;
+		z-index: 1;
+		margin: 0px auto;
+		margin-bottom: 5px;
+		@include box-shadow(0, 0, 10px, $gray);
+	}
+}
