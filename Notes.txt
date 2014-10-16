@@ -2,11 +2,11 @@
 Todo
 --------------------------------------------------------------------------------
 - HIGH PRIORITY: 
-	- visual confirmation for rewatch
 	- search result page
 
 - LOW HANGING: 
 	- add custom validations for poster_path
+	- add date/time to activity feed
 
 - MEDIUM: 
 	- UI for shows with no picture

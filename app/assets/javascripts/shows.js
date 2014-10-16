@@ -6,8 +6,11 @@ $(function() {
 	// This is for moveEpisodeInfo
 	// Define it up here for performance in the scroll event handler
 	var $window = $(window),
-			$epInfo = $("#highlighted-episode"),
-			epInfoTop = $epInfo.offset().top;
+			$epInfo = $("#highlighted-episode");
+
+	if ($epInfo.length) { // JS will break on /shows/search page without this
+			var epInfoTop = $epInfo.offset().top;	
+	}
 
 	function displayLoadingModal() {
 		$(".modal, .loading-modal").show();
@@ -22,6 +25,10 @@ $(function() {
 		$("#show-episodes").removeClass("need-to-fetch");
 		$(".episodes").html(data);
 		$(".season-tab-1").click();
+
+		// For sticky scrolling of episode info
+		$epInfo = $("#highlighted-episode"),
+		epInfoTop = $epInfo.offset().top;
 	}
 
 	function handleEpisodeView(evt, data) {
