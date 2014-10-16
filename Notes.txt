@@ -2,7 +2,7 @@
 Todo
 --------------------------------------------------------------------------------
 - HIGH PRIORITY: 
-	- search result page
+	- generate friendly id before save
 
 - LOW HANGING: 
 	- add custom validations for poster_path
