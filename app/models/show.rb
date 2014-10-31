@@ -112,6 +112,8 @@ class Show < ActiveRecord::Base
 		self.release_date = details.first_air_date
 		self.poster_image_path = details.poster_path
 		self.created_by = details.created_by.map { |x| x.name }.join(", ")
+		self.slug = self.name.downcase.gsub(" ", "-")
+		# ^^hacky but whatever, coulnd't get id to generate on save
 	end
 
 end

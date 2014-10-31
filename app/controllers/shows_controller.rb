@@ -13,6 +13,7 @@ class ShowsController < ApplicationController
 		@show = Show.find(params[:id])
 
 		if @show
+
 			@seasons = @show.sorted_seasons
 			prepare_basic_info
 		else
@@ -30,6 +31,7 @@ class ShowsController < ApplicationController
 		unless @show
 			@show = Show.create(tmdb_id: params[:tmdb_id])
 		end
+
 
 		redirect_to @show
 	end
